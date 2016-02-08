@@ -1,8 +1,17 @@
+/*
+Authors:
+    IIA Team
+*/
+
+// Imports
 import mods.gregtech.Lathe;
 
-var stone = <minecraft:stone>;
-var stoneRod = <ForgeMicroblock:stoneRod>;
-var stoneDust = <gregtech:gt.metaitem.01:2299>;
+// Variables
+var fmStoneRod = <ForgeMicroblock:stoneRod>;
+var gtStoneDust = <ore:dustStone>.firstItem;
+var mcStone = <minecraft:stone>;
 
-recipes.remove(stoneRod);
-Lathe.addRecipe([stoneRod, stoneDust], stone, 280, 16);
+// Recipes
+// -- Stone Rod --
+recipes.remove(fmStoneRod);
+Lathe.addRecipe([fmStoneRod, gtStoneDust], mcStone, 280, 16);

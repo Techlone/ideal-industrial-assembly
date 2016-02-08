@@ -1,14 +1,21 @@
-# Aliases
-var chunkLoader = <ChickenChunks:chickenChunkLoader:0>;
-var plateObsidian = <ore:plateObsidian>;
-var plateGold = <ore:plateGold>;
-var IndustrialDiamond = <IC2:itemPartIndustrialDiamond>;
-var EnderPearl = <minecraft:ender_pearl>;
+/*
+Authors:
+    IIA Team
+*/
 
-recipes.remove(chunkLoader);
-recipes.addShaped(chunkLoader, [[null, EnderPearl, null],
-				  				[plateGold, plateGold, plateGold],
-				  				[plateObsidian, IndustrialDiamond, plateObsidian]]);
+// Variables
+var ссСhunkLoader = <ChickenChunks:chickenChunkLoader:0>;
+var mcEnderPearl = <minecraft:ender_pearl>;
+var icIndustrialDiamond = <IC2:itemPartIndustrialDiamond>;
 
+// Dictionaries
+var orePlateObsidian = <ore:plateObsidian>;
+var orePlateGold = <ore:plateGold>;
 
-
+// Recipes
+// -- Chunk Loader --
+recipes.remove(ссСhunkLoader);
+recipes.addShaped(ссСhunkLoader, [
+[null, mcEnderPearl, null],
+[orePlateGold, orePlateGold, orePlateGold],
+[orePlateObsidian, icIndustrialDiamond, orePlateObsidian]]);

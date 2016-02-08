@@ -1,53 +1,30 @@
-// --- Created by Jason McRay --- 
+/*
+Authors:
+    Jason McRay
+    IIA Team
+*/
 
-# Aliases
-var chestEnder = <minecraft:ender_chest>;
-var dolly = <JABBA:mover>;
-var HHammer = <ore:craftingToolHardHammer>;
-var piston = <minecraft:piston>;
-var plankWood = <ore:plankWood>;
-var plateEnderium = <ore:plateEnderium>;
-var plateIron = <ore:plateIron>;
-var tuningFork = <JABBA:tuningFork>;
-var upgradeBSpace = <JABBA:upgradeCore:1>;
-var wrench = <ore:craftingToolWrench>;
-var hammerBarrel = <JABBA:hammer>;
-var ingotIron = <ore:ingotIron>;
-var stickWood = <ore:stickWood>;
-var upgradeStorage9x = <JABBA:upgradeCore:5>;
-var upgradeStorage27x = <JABBA:upgradeCore:6>;
-var betterBarrel = <JABBA:barrel>;
-var diadolly = <JABBA:moverDiamond>;
+// Variables
+var gtHardHammer = <ore:craftingToolHardHammer>;
+var jbBSpaceUpgrade = <JABBA:upgradeCore:1>;
+var jbDiamondDolly = <JABBA:moverDiamond>;
+var jbDolly = <JABBA:mover>;
+var jbHammer = <JABBA:hammer>;
+var jbTuningFork = <JABBA:tuningFork>;
 
-# Blocks/Items Removal
+// Dictionaries
+var oreIngotIron = <ore:ingotIron>;
+var oreStickWood = <ore:stickWood>;
 
-recipes.remove(upgradeBSpace);
-upgradeBSpace.addTooltip(format.red(format.bold("This item is DISABLED!")));
-
-recipes.remove(tuningFork);
-tuningFork.addTooltip(format.red(format.bold("This item is DISABLED!")));
-
-diadolly.addTooltip(format.red(format.bold("This item is DISABLED!")));
-
-dolly.addTooltip(format.red(format.bold("This item is DISABLED!")));
-
-
-# Recipe Tweaks
-recipes.remove(hammerBarrel);
-recipes.addShaped(hammerBarrel, [
-	[ingotIron, ingotIron, ingotIron],
-	[ingotIron, stickWood, ingotIron],
-	[HHammer, stickWood, null]]);
-recipes.addShaped(hammerBarrel, [
-	[ingotIron, ingotIron, ingotIron],
-	[ingotIron, stickWood, ingotIron],
-	[null, stickWood, HHammer]]);
-recipes.remove(dolly);
-//recipes.addShaped(dolly, [
-//	[null, wrench, plateIron],
-//	[HHammer, plankWood, plateIron],
-//	[plateIron, plateIron, plateIron]]);
-recipes.addShaped(upgradeStorage9x * 2, [
-    [plateEnderium, piston, plateEnderium],
-    [plateEnderium, betterBarrel, plateEnderium],
-    [plateEnderium, piston, plateEnderium]]);
+// Recipes
+// -- Full Removing --
+recipes.remove(jbBSpaceUpgrade);
+recipes.remove(jbDiamondDolly);
+recipes.remove(jbDolly);
+recipes.remove(jbTuningFork);
+// -- Barrel Hammer --
+recipes.remove(jbHammer);
+recipes.addShapedMirrored(jbHammer, [
+[oreIngotIron, oreIngotIron, oreIngotIron],
+[oreIngotIron, oreStickWood, oreIngotIron],
+[gtHardHammer, oreStickWood, null]]);
