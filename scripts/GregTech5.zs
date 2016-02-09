@@ -842,3 +842,5 @@ recipes.addShaped(<IC2:blockMachine2:10>, [
 	[<ore:cellEmpty>, pumpLV, <ore:cellEmpty>]]);
 
 ArcFurnace.addRecipe([steelIngot * 8, annealedCopperIngot * 6, bronzeIngot * 9, tinIngot * 31], <IC2:blockMachine2:10>, <liquid:oxygen> * 8208, [1, 1, 1, 1], 2280, 96);
+//Charcoal dust fix
+recipes.removeShapeless(<gregtech:gt.metaitem.01:2536> * 9, [<gregtech:gt.blockgem3:4>]);

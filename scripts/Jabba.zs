@@ -24,7 +24,7 @@ recipes.remove(jbDolly);
 recipes.remove(jbTuningFork);
 // -- Barrel Hammer --
 recipes.remove(jbHammer);
-recipes.addShapedMirrored(jbHammer, [
+recipes.addShaped(jbHammer, [
 [oreIngotIron, oreIngotIron, oreIngotIron],
 [oreIngotIron, oreStickWood, oreIngotIron],
 [gtHardHammer, oreStickWood, null]]);

@@ -4,7 +4,7 @@ Authors:
 */
 
 // Variables
-var ссСhunkLoader = <ChickenChunks:chickenChunkLoader:0>;
+var ccChunkLoader = <ChickenChunks:chickenChunkLoader:0>;
 var mcEnderPearl = <minecraft:ender_pearl>;
 var icIndustrialDiamond = <IC2:itemPartIndustrialDiamond>;
 
@@ -14,8 +14,8 @@ var orePlateGold = <ore:plateGold>;
 
 // Recipes
 // -- Chunk Loader --
-recipes.remove(ссСhunkLoader);
-recipes.addShaped(ссСhunkLoader, [
+recipes.remove(ccChunkLoader);
+recipes.addShaped(ccChunkLoader, [
 [null, mcEnderPearl, null],
 [orePlateGold, orePlateGold, orePlateGold],
 [orePlateObsidian, icIndustrialDiamond, orePlateObsidian]]);
