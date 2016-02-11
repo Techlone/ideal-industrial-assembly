@@ -1,2 +1,4 @@
 /scripts/tests
 /scripts/tests/*
+/scripts/disabled/tests
+/scripts/disabled/tests/*
