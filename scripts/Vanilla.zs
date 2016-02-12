@@ -5,7 +5,7 @@ Authors:
 
 // Variables
 var gtDustCoal = <ore:dustCoal>.greggedItem;
-var gtDustLapis = <ore:dustLapis>.greggetIrem;
+var gtDustLapis = <ore:dustLapis>.greggedItem;
 var mcBlazePowder = <minecraft:blaze_powder>;
 var mcBlazeRod = <minecraft:blaze_rod>;
 var mcBoosterTrack = <minecraft:golden_rail>;
