@@ -565,6 +565,7 @@ recipes.addShaped(alvSieve, [
 
 //Wooden planks
 var WoodPulp = <gregtech:gt.metaitem.01:2809>;
+/*
 var myLogs = [	<Forestry:logs:16>,
 		<Forestry:logs:17>,
 		<Forestry:logs:18>,
@@ -625,4 +626,43 @@ for i, log in myLogs {
 	CuttingSaw.addRecipe([slab * 2], plank, <liquid:water> * 4, 50, 4);
 	CuttingSaw.addRecipe([slab * 2], plank, <liquid:lubricant> * 1, 25, 4);
 
+}*/
+
+
+var myLogs = [<Forestry:logs>, <Forestry:logsFireproof>] as IItemStack[];
+var myPlanks = [<Forestry:planks>, <Forestry:planksFireproof>] as IItemStack[];
+var mySlabs = [<Forestry:slabs>, <Forestry:slabsFireproof>] as IItemStack[];
+
+var meta = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28] as int[];
+ 
+
+for i in meta
+{
+
+	for j, mylog in myLogs 
+	{	
+
+	var log = mylog.definition.makeStack(i);
+	var plank = myPlanks[j].definition.makeStack(i);
+	var slab = mySlabs[j].definition.makeStack(i);
+
+//	recipes.removeShapeless(plank, [log]);
+//	recipes.addShaped(plank * 4, [[craftingToolSaw], [log]]);
+//	recipes.addShapeless(plank * 2, [log]);
+
+//	recipes.remove(slab);
+//	recipes.addShaped(slab * 2, [[craftingToolSaw, plank]]);
+
+//	CuttingSaw.addRecipe([plank * 4, WoodPulp * 2], log, <liquid:water> * 5, 400, 8);
+//	CuttingSaw.addRecipe([plank * 6, WoodPulp], log, <liquid:lubricant> * 1, 200, 8);
+
+//	CuttingSaw.addRecipe([slab * 2], plank, <liquid:water> * 4, 50, 4);
+//	CuttingSaw.addRecipe([slab * 2], plank, <liquid:lubricant> * 1, 25, 4);
+	
+	}
 }
+
+//Fertilizer
+recipes.remove(<Forestry:fertilizerCompound>);
+recipes.addShapeless(<Forestry:fertilizerCompound>, [<IC2:itemFertilizer>]);
+recipes.addShapeless(<IC2:itemFertilizer>, [<Forestry:fertilizerCompound>]);

@@ -23,6 +23,7 @@ var cableGold1x = <ore:cableGt01Gold>;
 var cableGold2x = <ore:cableGt02Gold>;
 var circuitBasic = <ore:circuitBasic>;
 var circuitAdvanced = <ore:circuitAdvanced>;
+var circuitDataStorage = <gregtech:gt.metaitem.01:32704>;
 var circuitEnergyFlow = <gregtech:gt.metaitem.01:32706>;
 var coil = <IC2:itemRecipePart>;
 var craftingGenerator = <ore:craftingGenerator>;
@@ -112,14 +113,17 @@ var HVblockCasing = <gregtech:gt.blockcasings:3>;
 var TFBP = <IC2:itemTFBP>;
 var circuitEFlow = <gregtech:gt.metaitem.01:32706>;
 var FieldGeneratorHV = <gregtech:gt.metaitem.01:32672>;
+var FieldGeneratorEV = <gregtech:gt.metaitem.01:32673>;
 var emitterMV = <gregtech:gt.metaitem.01:32681>;
 var emitterHV = <gregtech:gt.metaitem.01:32682>;
+var emitterEV = <gregtech:gt.metaitem.01:32683>;
 var cableHVGold = <gregtech:gt.blockmachines:1426>;
 var DataOrb = <gregtech:gt.metaitem.01:32707>;
 
 var NucReactor = <IC2:blockGenerator:5>;
 var RTG = <IC2:blockGenerator:6>;
 //val ReactorThickReflector = <IC2:reactorReflectorThick>;
+var LapotronicCrystal = <IC2:itemBatLamaCrystal:26>;
 
 var SmallPowerUnit = <IC2:itemRecipePart:3>;
 var ElectricWrench = <IC2:itemToolWrenchElectric>;
@@ -160,7 +164,7 @@ var steelFluidPipe = <gregtech:gt.blockmachines:5132>;
 	val DenseBronsePlate = <ore:plateDenseBronse>;val specificDenseBronsePlate = <gregtech:gt.metaitem.01:22300>;
 	val DenseElectrumPlate = <ore:plateDenseElectrum>;
 	val DenseTinPlate = <ore:plateDenseTin>;
-	val DenseRedAlloyPlate = <ore:plateRedAlloy>;
+	val RedAlloyPlate = <ore:plateRedAlloy>;
 	val DenseLapisPlate = <ore:plateDenseLapis>; val specificDenseLapisPlate = <IC2:itemDensePlates:8>;
 
 	val ReactorPlate = <IC2:reactorPlating>;
@@ -312,8 +316,8 @@ recipes.remove(fuelRodThorium);
 Canner.addRecipe(fuelRodThorium, dustThorium * 3, fuelRodEmpty, 200, 2);
 
 
-recipes.removeShapeless(DiamondDust, [<minecraft:diamond_block>]);
-recipes.removeShapeless(<minecraft:diamond>, [<minecraft:diamond_block>]);
+recipes.removeShapeless(DiamondDust * 9, [<minecraft:diamond_block>]);
+recipes.removeShapeless(<minecraft:diamond> * 9, [<minecraft:diamond_block>]);
 recipes.remove(UFluidCell);
 
 # Specials
@@ -646,12 +650,12 @@ recipes.addShaped(<IC2:blockNuke>, [
 
 
 	//RSH Condensator
-	recipes.remove(ReactorCondensator);
-	recipes.addShaped(ReactorCondensator, [
-	[DenseRedAlloyPlate, ReactorHeatSwitchCore, DenseRedAlloyPlate],
-	[DenseRedAlloyPlate, ReactorHeatVentCore, DenseRedAlloyPlate],
-	[DenseRedAlloyPlate, ReactorHeatSwitchCore, DenseRedAlloyPlate]]);
-	recipes.addShapeless(ReactorCondensator, [<IC2:reactorCondensator:9999>, DenseRedAlloyPlate, DenseRedAlloyPlate, DenseRedAlloyPlate]);
+	recipes.remove(<IC2:reactorCondensator:1>);
+	recipes.addShaped(<IC2:reactorCondensator:1>, [
+	[RedAlloyPlate, ReactorHeatSwitchCore, RedAlloyPlate],
+	[RedAlloyPlate, ReactorHeatVentCore, RedAlloyPlate],
+	[RedAlloyPlate, ReactorHeatSwitchCore, RedAlloyPlate]]);
+	recipes.addShapeless(<IC2:reactorCondensator:1>, [<IC2:reactorCondensator:9998>, RedAlloyPlate, RedAlloyPlate, RedAlloyPlate]);
 
 	
 	//Coke coal block
@@ -660,14 +664,17 @@ recipes.addShaped(<IC2:blockNuke>, [
 
 	//Lignite dust fix
 	recipes.removeShapeless(<gregtech:gt.metaitem.01:2538> * 9, [<gregtech:gt.blockgem2:1>]);
+	//Charcoal dust fix
+	recipes.removeShapeless(<gregtech:gt.metaitem.01:2536> * 9, [<gregtech:gt.blockgem3:4>]);
 
 
 	//LZH Condensator+
-	recipes.addShaped(<IC2:reactorCondensatorLap>, [
+	recipes.remove(<IC2:reactorCondensatorLap:1>);
+	recipes.addShaped(<IC2:reactorCondensatorLap:1>, [
 	[LapisPlate, ReactorHeatVentGold, LapisPlate],
-	[<IC2:reactorCondensator>, LapisPlate, <IC2:reactorCondensator>],
+	[<IC2:reactorCondensator:1>, LapisPlate, <IC2:reactorCondensator:1>],
 	[LapisPlate, ReactorHeatSwitchSpread, LapisPlate]]);
-	recipes.addShapeless(<IC2:reactorCondensatorLap>, [<IC2:reactorCondensatorLap:9999>, LapisPlate, LapisPlate, LapisPlate]);
+	recipes.addShapeless(<IC2:reactorCondensatorLap:1>, [<IC2:reactorCondensatorLap:9998>, LapisPlate, LapisPlate, LapisPlate]);
 
 	//Biogas Jetpack-
 	//recipes.remove(<IC2:itemArmorJetpack>);
@@ -756,7 +763,7 @@ recipes.addShaped(<IC2:blockMachine:7>, [
 [circuitBasic, HullLV, circuitBasic],
 [MiningPipe, <ore:calclavia:ADVANCED_BATTERY>, MiningPipe]]);
 
-ArcFurnace.addRecipe([steelIngot * 14, annealedCopperIngot * 4, batteryAlloyIngot, tinIngot], <IC2:blockMachine:7>, <liquid:oxygen> * 2880, [1, 1, 1, 1], 800, 96);
+ArcFurnace.addRecipe([steelIngot * 14, annealedCopperIngot * 4, batteryAlloyIngot, tinIngot], <IC2:blockMachine:7>, <liquid:oxygen> * 2880, [10000, 10000, 10000, 10000], 800, 96);
 
 //Advanced Miner+
 recipes.addShaped(<IC2:blockMachine2:11>, [
@@ -764,7 +771,7 @@ recipes.addShaped(<IC2:blockMachine2:11>, [
 [AdvancedCircuit, MiningPipe, AdvancedCircuit],
 [SilverCable, <ore:toolHeadDrillStainlessSteel>, SilverCable]]);
 
-ArcFurnace.addRecipe([steelIngot * 9, annealedCopperIngot * 24, ststeelIngot * 20, goldIngot * 7], <IC2:blockMachine2:11>, <liquid:oxygen> * 5904, [1, 1, 1, 1], 1640, 96);
+ArcFurnace.addRecipe([steelIngot * 9, annealedCopperIngot * 24, ststeelIngot * 20, goldIngot * 7], <IC2:blockMachine2:11>, <liquid:oxygen> * 5904, [10000, 10000, 10000, 10000], 1640, 96);
 
 // Magnetizer
 var steelSpringMagn = <gregtech:gt.metaitem.02:24355>;
@@ -773,7 +780,7 @@ recipes.addShaped(<IC2:blockMachine:9>, [
 [<ore:calclavia:ADVANCED_BATTERY>, HullLV, <ore:calclavia:ADVANCED_BATTERY>],
 [steelSpringMagn, <IC2:blockFenceIron>, steelSpringMagn]]);
 
-ArcFurnace.addRecipe([steelIngot * 12, wroughtIronIngot, batteryAlloyIngot * 2, tinIngot * 2], <IC2:blockMachine:9>, <liquid:oxygen> * 2448, [1, 1, 1, 1], 680, 96);
+ArcFurnace.addRecipe([steelIngot * 12, wroughtIronIngot, batteryAlloyIngot * 2, tinIngot * 2], <IC2:blockMachine:9>, <liquid:oxygen> * 2448, [10000, 10000, 10000, 10000], 680, 96);
 
 // Tesla Coil
 var aluminiumSpring = <gregtech:gt.metaitem.02:24019>;
@@ -782,7 +789,7 @@ recipes.addShaped(<IC2:blockMachine2:1>, [
 [aluminiumSpring, HullMV, aluminiumSpring],
 [emitterMV, aluminiumSpring, emitterMV]]);
 
-ArcFurnace.addRecipe([aluminiumIngot * 12, annealedCopperIngot * 5, electrumIngot * 8], <IC2:blockMachine2:1>, <liquid:oxygen> * 3600, [1, 1, 1], 1000, 96);
+ArcFurnace.addRecipe([aluminiumIngot * 12, annealedCopperIngot * 5, electrumIngot * 8], <IC2:blockMachine2:1>, <liquid:oxygen> * 3600, [10000, 10000, 10000], 1000, 96);
 
 // Fluid Regulator
 recipes.addShaped(<IC2:blockMachine2:14>, [
@@ -790,7 +797,7 @@ recipes.addShaped(<IC2:blockMachine2:14>, [
 [steelFluidPipe, HullMV, steelFluidPipe],
 [GoodCircuit, EmptyCell, GoodCircuit]]);
 
-ArcFurnace.addRecipe([aluminiumIngot * 9, annealedCopperIngot * 13, steelIngot * 9, tinIngot * 2], <IC2:blockMachine2:14>, <liquid:oxygen> * 4752, [1, 1, 1, 1], 1320, 96);
+ArcFurnace.addRecipe([aluminiumIngot * 9, annealedCopperIngot * 13, steelIngot * 9, tinIngot * 2], <IC2:blockMachine2:14>, <liquid:oxygen> * 4752, [10000, 10000, 10000, 10000], 1320, 96);
 
 // Fluid Distributor
 recipes.addShaped(<IC2:blockMachine3:4>, [
@@ -798,7 +805,7 @@ recipes.addShaped(<IC2:blockMachine3:4>, [
 [pumpLV, HullLV, pumpLV],
 [EmptyCell, EmptyCell, EmptyCell]]);
 
-ArcFurnace.addRecipe([steelIngot * 8, annealedCopperIngot * 10, bronzeIngot * 9, tinIngot * 25], <IC2:blockMachine3:4>, <liquid:oxygen> * 7488, [1, 1, 1, 1], 2080, 96);
+ArcFurnace.addRecipe([steelIngot * 8, annealedCopperIngot * 10, bronzeIngot * 9, tinIngot * 25], <IC2:blockMachine3:4>, <liquid:oxygen> * 7488, [10000, 10000, 10000, 10000], 2080, 96);
 
 //Electric Sorting Machine
 var regulator = <gregtech:gt.blockmachines:9271>;
@@ -816,7 +823,7 @@ recipes.addShaped(<IC2:blockMachine2:2>, [
 [pumpLV, HullLV, moduleConveyorLV],
 [Chest, circuitBasic, EmptyCell]]);
 
-ArcFurnace.addRecipe([steelIngot * 20, annealedCopperIngot * 22, wroughtIronIngot * 14, tinIngot * 22], <IC2:blockMachine2:2>, <liquid:oxygen> * 11232, [1, 1, 1, 1], 3120, 96);
+ArcFurnace.addRecipe([steelIngot * 20, annealedCopperIngot * 22, wroughtIronIngot * 14, tinIngot * 22], <IC2:blockMachine2:2>, <liquid:oxygen> * 11232, [10000, 10000, 10000, 10000], 3120, 96);
 
 // Crop Harvester
 recipes.addShaped(<IC2:blockMachine3:7>, [
@@ -824,7 +831,7 @@ recipes.addShaped(<IC2:blockMachine3:7>, [
 [pistonElectricLV, HullLV, sensorLV],
 [CableLV, moduleConveyorLV, CableLV]]);
 
-ArcFurnace.addRecipe([steelIngot * 29, annealedCopperIngot * 20, wroughtIronIngot * 13, tinIngot * 17], <IC2:blockMachine3:7>, <liquid:oxygen> * 11376, [1, 1, 1, 1], 3160, 96);
+ArcFurnace.addRecipe([steelIngot * 29, annealedCopperIngot * 20, wroughtIronIngot * 13, tinIngot * 17], <IC2:blockMachine3:7>, <liquid:oxygen> * 11376, [10000, 10000, 10000, 10000], 3160, 96);
 
 //Electric Boat
 recipes.remove(<IC2:itemBoat:3>);
@@ -833,7 +840,7 @@ recipes.addShaped(<IC2:itemBoat:3>, [
 [AluminiumPlate, null, AluminiumPlate],
 [AluminiumPlate, AluminiumPlate, AluminiumPlate]]);
 
-ArcFurnace.addRecipe([steelIngot * 4, annealedCopperIngot * 5, aluminiumIngot * 5], <IC2:blockMachine3:7>, <liquid:oxygen> * 1584, [1, 1, 1], 440, 96);
+ArcFurnace.addRecipe([steelIngot * 4, annealedCopperIngot * 5, aluminiumIngot * 5], <IC2:itemBoat:3>, <liquid:oxygen> * 1584, [10000, 10000, 10000], 440, 96);
 
 //Bollting machine
 recipes.addShaped(<IC2:blockMachine2:10>, [
@@ -841,6 +848,36 @@ recipes.addShaped(<IC2:blockMachine2:10>, [
 	[<ore:cellEmpty>, <gregtech:gt.blockmachines:231>, <ore:cellEmpty>],
 	[<ore:cellEmpty>, pumpLV, <ore:cellEmpty>]]);
 
-ArcFurnace.addRecipe([steelIngot * 8, annealedCopperIngot * 6, bronzeIngot * 9, tinIngot * 31], <IC2:blockMachine2:10>, <liquid:oxygen> * 8208, [1, 1, 1, 1], 2280, 96);
-//Charcoal dust fix
-recipes.removeShapeless(<gregtech:gt.metaitem.01:2536> * 9, [<gregtech:gt.blockgem3:4>]);
+ArcFurnace.addRecipe([steelIngot * 8, annealedCopperIngot * 6, bronzeIngot * 9, tinIngot * 31], <IC2:blockMachine2:10>, <liquid:oxygen> * 8208, [10000, 10000, 10000, 10000], 2280, 96);
+
+//Raintank
+ArcFurnace.addRecipe([wroughtIronIngot * 13], <Forestry:factory2:1>, <liquid:oxygen> * 1872, [10000], 520, 96);
+
+
+//Lead
+recipes.addShaped(<minecraft:lead>, [
+    [<minecraft:string>, <minecraft:string>, null], 
+    [<minecraft:string>, <IC2:itemHarz>, null],
+    [null, null, <minecraft:string>]]);
+
+//IC Uran block
+recipes.remove(<IC2:blockMetal:3>);
+Compressor.addRecipe(<IC2:blockMetal:3>, <IC2:itemUran238> * 9);
+
+//EV Microwave Energy Transmitter
+var MicTransmitterEV = <gregtech:gt.blockmachines:1162>;
+recipes.remove(MicTransmitterEV);
+recipes.addShaped(MicTransmitterEV, [
+    [emitterEV, FieldGeneratorEV, emitterEV], 
+    [emitterEV, HullEV, emitterEV],
+    [<ore:circuitData>, LapotronicCrystal, <ore:circuitData>]]);
+
+
+//Ind Diamond
+//recipes.addShapeless(<minecraft:diamond>, [<IC2:itemPartIndustrialDiamond>]);
+
+//IC Iridium Fix
+furnace.remove(<gregtech:gt.metaitem.01:11084>, <IC2:itemOreIridium>);
+furnace.remove(<IC2:itemOreIridium>);
+recipes.removeShapeless(<IC2:itemOreIridium> * 9, [<gregtech:gt.metaitem.01:11084>]);
+recipes.removeShapeless(<gregtech:gt.metaitem.01:2084> * 9, [<gregtech:gt.metaitem.01:11084>]);

@@ -2,16 +2,16 @@ import minetweaker.oredict.IOreDictEntry;
 
 var mortarTool = <ore:craftingToolMortar>;
 var commonTinyPiles = [
-	<ore:dustTinyGold>,
-	<ore:dustTinySilver>,
+    <ore:dustTinyGold>,
+    <ore:dustTinySilver>,
     <ore:dustTinyTin>,
     <ore:dustTinyCopper>,
     <ore:dustTinyIron>,
     <ore:dustTinyLead>
 ] as IOreDictEntry[];
 var commonNuggets = [
-	<ore:nuggetGold>,
-	<ore:nuggetSilver>,
+    <ore:nuggetGold>,
+    <ore:nuggetSilver>,
     <ore:nuggetTin>,
     <ore:nuggetCopper>,
     <ore:nuggetIron>,
@@ -19,7 +19,7 @@ var commonNuggets = [
 ] as IOreDictEntry[];
 
 for i, tinyPile in commonTinyPiles {
-	recipes.addShaped(tinyPile.firstItem, [[commonNuggets[i]], [mortarTool]]);
+    recipes.addShaped(tinyPile.firstItem, [[commonNuggets[i]], [mortarTool]]);
 }
 
 furnace.remove(<ore:nuggetSteel>);

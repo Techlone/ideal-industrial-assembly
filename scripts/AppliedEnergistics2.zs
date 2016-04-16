@@ -1090,6 +1090,18 @@ NEI.hide(<appliedenergistics2:tile.OreQuartz>);
 NEI.hide(<appliedenergistics2:tile.OreQuartzCharged>);
 NEI.hide(<appliedenergistics2:item.ToolChargedStaff>);
 
+//Removing inscriber all recipes except for name press (© Infitech2)
+//Inscriber.removeRecipe(<appliedenergistics2:item.ItemMultiMaterial:15>);
+//Inscriber.removeRecipe(<appliedenergistics2:item.ItemMultiMaterial:13>);
+//Inscriber.removeRecipe(<appliedenergistics2:item.ItemMultiMaterial:14>);
+//Inscriber.removeRecipe(<appliedenergistics2:item.ItemMultiMaterial:19>);
+//Inscriber.removeRecipe(<appliedenergistics2:item.ItemMultiMaterial:18>);
+//Inscriber.removeRecipe(<appliedenergistics2:item.ItemMultiMaterial:16>);
+//Inscriber.removeRecipe(<appliedenergistics2:item.ItemMultiMaterial:17>);
+//Inscriber.removeRecipe(<appliedenergistics2:item.ItemMultiMaterial:20>);
+//Inscriber.removeRecipe(<appliedenergistics2:item.ItemMultiMaterial:22>);
+//Inscriber.removeRecipe(<appliedenergistics2:item.ItemMultiMaterial:23>);
+//Inscriber.removeRecipe(<appliedenergistics2:item.ItemMultiMaterial:24>);
 
 // --- Renaming Stuff ---
 
