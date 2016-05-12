@@ -1,7 +1,12 @@
-// --- Created by Jason McRay --- 
+/*
+Authors:
+	DreamMasterXXL
+    Jason McRay
+    IIA Team
+*/
 
+// Imports
 import minetweaker.item.IItemStack;
-
 import mods.gregtech.AlloySmelter;
 import mods.gregtech.ArcFurnace;
 import mods.gregtech.Assembler;
@@ -12,872 +17,879 @@ import mods.ic2.Compressor;
 import mods.ic2.SemiFluidGenerator;
 import mods.nei.NEI;
 
-# Aliases
+// Variables
+var bcWrench = <BuildCraft|Core:wrenchItem>;
 
-var DenseCopperPlate = <gregtech:gt.metaitem.01:22035>;
-var QuadrupleGoldPlate = <gregtech:gt.metaitem.01:20086>;
+var frRaintank = <Forestry:factory2:1>;
 
-var book = <minecraft:book>;
-var cableCopperAnnealed1x = <gregtech:gt.blockmachines:1386>;
-var cableGold1x = <ore:cableGt01Gold>;
-var cableGold2x = <ore:cableGt02Gold>;
-var circuitBasic = <ore:circuitBasic>;
-var circuitAdvanced = <ore:circuitAdvanced>;
-var circuitDataStorage = <gregtech:gt.metaitem.01:32704>;
-var circuitEnergyFlow = <gregtech:gt.metaitem.01:32706>;
-var coil = <IC2:itemRecipePart>;
-var craftingGenerator = <ore:craftingGenerator>;
-var dustGlowstone = <ore:dustGlowstone>;
-var dustLead = <ore:dustLead>;
-var dustSulfur = <ore:dustSulfur>;
-var dustThorium = <gregtech:gt.metaitem.01:2096>;
-var energyCrystal = <IC2:itemBatCrystal:*>;
-var fuelRodEmpty = <IC2:itemFuelRod>;
-var fuelRodMOX = <IC2:reactorMOXSimple:1>;
-var fuelRodThorium = <gregtech:gt.Thoriumcell>;
-var fuelRodUranium = <IC2:reactorUraniumSimple:1>;
-var genKinWind = <IC2:blockKineticGenerator>;
-//var HHammer = <ore:craftingToolHardHammer>;
-var ingotSteel = <ore:ingotSteel>;
-var inkSac = <minecraft:dye>;
-var itemCasingBronze = <IC2:itemCasing:2>;
-var itemCasingGold = <IC2:itemCasing:3>;
+var gt1xAnnealedCopperCable = <gregtech:gt.blockmachines:1386>;
+var gt1xGoldCable = <gregtech:gt.blockmachines:1426>;
+var gt1xSuperconductorWire = <gregtech:gt.blockmachines:2020>;
+var gt2xNbTiWire = <gregtech:gt.blockmachines:1721>;
+var gt2xNqWire = <gregtech:gt.blockmachines:1701>;
+var gt2xVGaWire = <gregtech:gt.blockmachines:1741>;
+var gt2xYBaCuWire = <gregtech:gt.blockmachines:1761>;
+var gtAluminiumIngot = <gregtech:gt.metaitem.01:11019>;
+var gtAluminiumSpring = <gregtech:gt.metaitem.02:24019>;
+var gtAnnealedCopperDust = <gregtech:gt.metaitem.01:2345>;             
+var gtAnnealedCopperIngot = <gregtech:gt.metaitem.01:11345>;        
+var gtAnnealedCopperNugget = <gregtech:gt.metaitem.01:9345>;
+var gtBatteryAlloyIngot = <gregtech:gt.metaitem.01:11315>;
+var gtBerylliumPlate = <gregtech:gt.metaitem.01:17008>;
+var gtBlockCharcoal = <gregtech:gt.blockgem3:4>;
+var gtBlockLignite = <gregtech:gt.blockgem2:1>;
+var gtBronzeIngot = <gregtech:gt.metaitem.01:11300>;
+var gtCanningMachine = <gregtech:gt.blockmachines:231>;
+var gtCharcoalDust = <gregtech:gt.metaitem.01:2536>;
+var gtChestBufferLV = <gregtech:gt.blockmachines:9231>;
+var gtCoalDust = <gregtech:gt.metaitem.01:2535>;
+var gtConveyorModuleHV = <gregtech:gt.metaitem.01:32632>;
+var gtConveyorModuleLV = <gregtech:gt.metaitem.01:32630>;
+var gtDataOrb = <gregtech:gt.metaitem.01:32707>;
+var gtDataStorageCircuit = <gregtech:gt.metaitem.01:32704>;
+var gtDenseBronzePlate = <gregtech:gt.metaitem.01:22300>;
+var gtDenseCopperPlate = <gregtech:gt.metaitem.01:22035>;
+var gtDenseLeadPlate = <gregtech:gt.metaitem.01:22089>;
+var gtDiamondDust = <gregtech:gt.metaitem.01:2500>;
+var gtDieselGeneratorHV = <gregtech:gt.blockmachines:1112>;
+var gtDoubleAnnealedCopperIngot = <gregtech:gt.metaitem.01:13345>;    
+var gtDoublePigIronIngot = <gregtech:gt.metaitem.01:13307>;     
+var gtDoubleWroughtIronIngot = <gregtech:gt.metaitem.01:13304>;       
+var gtDrillLV = <gregtech:gt.metatool.01:100>;
+var gtElectricPistonHV = <gregtech:gt.metaitem.01:32642>;
+var gtElectricPistonLV = <gregtech:gt.metaitem.01:32640>;
+var gtElectrumIngot = <gregtech:gt.metaitem.01:11303>;
+var gtEmitterEV = <gregtech:gt.metaitem.01:32683>;
+var gtEmitterHV = <gregtech:gt.metaitem.01:32682>;
+var gtEmitterMV = <gregtech:gt.metaitem.01:32681>;
+var gtEnergyFlowCircuit = <gregtech:gt.metaitem.01:32706>;
+var gtFieldGeneratorEV = <gregtech:gt.metaitem.01:32673>;
+var gtFieldGeneratorHV = <gregtech:gt.metaitem.01:32672>;
+var gtFuelRodThorium = <gregtech:gt.Thoriumcell>;
+var gtGoldIngot = <minecraft:gold_ingot>;
+var gtHeliumCell = <gregtech:gt.metaitem.01:30004>;
+var gtImpurePigIronDust = <gregtech:gt.metaitem.01:3307>;         
+var gtIridiumDust = <gregtech:gt.metaitem.01:2084>;
+var gtIridiumIngot = <gregtech:gt.metaitem.01:11084>;
+var gtIronNugget = <gregtech:gt.metaitem.01:9032>;
+var gtLargeSteelFluidCell = <gregtech:gt.metaitem.01:32405>;
+var gtLigniteDust = <gregtech:gt.metaitem.01:2538>;
+var gtMachineCasingEV = <gregtech:gt.blockcasings:4>;
+var gtMachineCasingHV = <gregtech:gt.blockcasings:3>;
+var gtMachineCasingULV = <gregtech:gt.blockcasings:0>;
+var gtMachineHullEV = <gregtech:gt.blockmachines:14>;
+var gtMachineHullHV = <gregtech:gt.blockmachines:13>;
+var gtMachineHullLV = <gregtech:gt.blockmachines:11>;
+var gtMachineHullMV = <gregtech:gt.blockmachines:12>;
+var gtMagneticSteelSpring = <gregtech:gt.metaitem.02:24355>;
+var gtMicEnergyTransmitterEV = <gregtech:gt.blockmachines:1162>;
+var gtMoldIngot = <gregtech:gt.metaitem.01:32306>;
+var gtMotorHV = <gregtech:gt.metaitem.01:32602>;
+var gtMotorLV = <gregtech:gt.metaitem.01:32600>;
+var gtMotorMV = <gregtech:gt.metaitem.01:32601>;
+var gtNitrogenCell = <gregtech:gt.metaitem.01:30012>;
+var gtPigIronDust = <gregtech:gt.metaitem.01:2307>;             
+var gtPigIronIngot = <gregtech:gt.metaitem.01:11307>;            
+var gtPigIronNugget = <gregtech:gt.metaitem.01:9307>;             
+var gtPigIronOre = <gregtech:gt.blockores:307>;                   
+var gtPumpCoverLV = <gregtech:gt.metaitem.01:32610>;
+var gtPumpCoverMV = <gregtech:gt.metaitem.01:32611>;
+var gtPurePigIronDust = <gregtech:gt.metaitem.01:4307>;         
+var gtQuadrupleAnnealedCopperIngot = <gregtech:gt.metaitem.01:15345>; 
+var gtQuadrupleGoldPlate = <gregtech:gt.metaitem.01:20086>;
+var gtQuadrupleLeadPlate = <gregtech:gt.metaitem.01:20089>;
+var gtQuadruplePigIronIngot = <gregtech:gt.metaitem.01:15307>;    
+var gtQuadrupleWroughtIronIngot = <gregtech:gt.metaitem.01:15304>;     
+var gtQuintupleAnnealedCopperIngot = <gregtech:gt.metaitem.01:16345>;  
+var gtQuintupleCopperPlate = <gregtech:gt.metaitem.01:21035>;
+var gtQuintuplePigIronIngot = <gregtech:gt.metaitem.01:16307>;  
+var gtQuintupleWroughtIronIngot = <gregtech:gt.metaitem.01:16304>;    
+var gtRegulatorLV = <gregtech:gt.blockmachines:9271>;
+var gtRobotArmEV = <gregtech:gt.metaitem.01:32653>;
+var gtRobotArmHV = <gregtech:gt.metaitem.01:32652>;
+var gtRobotArmLV = <gregtech:gt.metaitem.01:32650>;
+var gtSensorHV = <gregtech:gt.metaitem.01:32692>;
+var gtSensorLV = <gregtech:gt.metaitem.01:32690>;
+var gtSmallAnnealedCopperDust = <gregtech:gt.metaitem.01:1345>;        
+var gtSmallIronDust = <gregtech:gt.metaitem.01:1304>;        
+var gtSmallPigIronDust = <gregtech:gt.metaitem.01:1307>;         
+var gtSmallTungstensteelPipe = <gregtech:gt.blockmachines:5161>;
+var gtStainlessStellIngot = <gregtech:gt.metaitem.01:11306>;
+var gtSteamTurbineHV = <gregtech:gt.blockmachines:1122>;
+var gtSteelFluidPipe = <gregtech:gt.blockmachines:5132>;
+var gtSteelIngot = <gregtech:gt.metaitem.01:11305>;
+var gtSteelNugget = <gregtech:gt.metaitem.01:9305>;
+var gtThoriumDust = <gregtech:gt.metaitem.01:2096>;
+var gtTinIngot = <gregtech:gt.metaitem.01:11057>;
+var gtTinyAnnealedCopperDust = <gregtech:gt.metaitem.01:345>;          
+var gtTinyPigIronDust = <gregtech:gt.metaitem.01:307>;         
+var gtTinyWroughtIronDust = <gregtech:gt.metaitem.01:304>;            
+var gtTransformerEV = <gregtech:gt.blockmachines:24>;
+var gtTransformerHV = <gregtech:gt.blockmachines:23>;
+var gtTransformerLV = <gregtech:gt.blockmachines:21>;
+var gtTransformerMV = <gregtech:gt.blockmachines:22>;
+var gtTripleAnnealedCopperIngot = <gregtech:gt.metaitem.01:14345>;  
+var gtTriplePigIronIngot = <gregtech:gt.metaitem.01:14307>;     
+var gtTripleWroughtIronIngot = <gregtech:gt.metaitem.01:14304>;      
+var gtWrenchLV = <gregtech:gt.metatool.01:120>;
+var gtWroughtIronDust = <gregtech:gt.metaitem.01:2304>;              
+var gtWroughtIronIngot = <gregtech:gt.metaitem.01:11304>;          
+var gtWroughtIronNugget = <gregtech:gt.metaitem.01:9304>;
 
-//val HullLV = <gregtech:gt.blockmachines:11>;
-//val HullMV = <gregtech:gt.blockmachines:12>;
-//val HullHV = <gregtech:gt.blockmachines:13>;
-//val HullEV = <gregtech:gt.blockmachines:14>;
+var icAdvancedAlloy = <IC2:itemPartAlloy>; 
+var icAdvancedHeatVent = <IC2:reactorVentDiamond:1>;
+var icAdvancedMiner = <IC2:blockMachine2:11>;
+var icAdvancedREBattery = <IC2:itemAdvBat>;
+var icBasicMachineCasing = <IC2:blockMachine:0>;
+var icBatBox = <IC2:blockElectric:0>;
+var icBatPack = <IC2:itemArmorBatpack>;
+var icBottlingPlant = <IC2:blockMachine2:10>;
+var icBronzeItemCasing = <IC2:itemCasing:2>;
+var icCarbonRotorBlade = <IC2:itemRecipePart:9>;
+var icCESU = <IC2:blockElectric:7>;
+var icCFSprayer = <IC2:itemFoamSprayer>;
+var icCoil = <IC2:itemRecipePart:0>;
+var icComponentHeatExchanger = <IC2:reactorHeatSwitchSpread>;
+var icComponentHeatExchanger1 = <IC2:reactorHeatSwitchSpread:1>;
+var icComponentHeatVent = <IC2:reactorVentSpread>;
+var icContainmentReactorPlating = <IC2:reactorPlatingExplosive>;
+var icCropHarvester = <IC2:blockMachine3:7>;
+var icCropMatron = <IC2:blockMachine2:2>;
+var icDenseLapisPlate = <IC2:itemDensePlates:8>;
+var icElectricBoat = <IC2:itemBoat:3>;
+var icElectricHoe = <IC2:itemToolHoe>;
+var icElectricTreetap = <IC2:itemTreetapElectric>;
+var icElectricWrench = <IC2:itemToolWrenchElectric>;
+var icElectronicCircuit = <IC2:itemPartCircuit>;
+var icEnergyCrystal = <IC2:itemBatCrystal:*>;
+var icEnrichedUranium = <IC2:itemUran>;
+var icFluidDistributor = <IC2:blockMachine3:4>;
+var icFluidRegulator = <IC2:blockMachine2:14>;
+var icFuelRodEmpty = <IC2:itemFuelRod>;
+var icFuelRodMOX = <IC2:reactorMOXSimple:1>;
+var icFuelRodUranium = <IC2:reactorUraniumSimple:1>;
+var icGoldItemCasing = <IC2:itemCasing:3>;
+var icHazmatLeggings = <IC2:itemArmorHazmatLeggings>;
+var icHazmatSuit = <IC2:itemArmorHazmatChestplate>;
+var icHeatExchanger1 = <IC2:reactorHeatSwitch:1>;
+var icHeatReactorPlating = <IC2:reactorPlatingHeat>;
+var icHeatVent1 = <IC2:reactorVent:1>;
+var icIridiumOre = <IC2:itemOreIridium>;
+var icIronFence = <IC2:blockFenceIron>;
+var icIronItemCasing = <IC2:itemCasing:4>;
+var icIronRotorBlade = <IC2:itemRecipePart:8>;
+var icItemBuffer = <IC2:blockMachine3:6>;
+var icKineticWindGenerator = <IC2:blockKineticGenerator:0>;
+var icLapotronCrystal = <IC2:itemBatLamaCrystal:26>;
+var icLZHCondensator1 = <IC2:reactorCondensatorLap:1>;
+var icLZHCondensator9998 = <IC2:reactorCondensatorLap:9998>;
+var icMagnetizer = <IC2:blockMachine:9>;
+var icMFE = <IC2:blockElectric:1>;
+var icMFSU = <IC2:blockElectric:2>;
+var icMFSUUpgradeKit = <IC2:itemupgradekit>;
+var icMiner = <IC2:blockMachine:7>;
+var icMiningDrill = <IC2:itemToolDrill>;
+var icMiningLaser = <IC2:itemToolMiningLaser>;
+var icMiningPipe = <IC2:blockMiningPipe>;
+var icMOX = <IC2:itemMOX>;
+var icNeutronReflector1 = <IC2:reactorReflector:1>;
+var icNuclearReactor = <IC2:blockGenerator:5>;
+var icNuke = <IC2:blockNuke>;
+var icODScanner = <IC2:itemScanner>;
+var icODScannerMeta = <IC2:itemScanner:*>;
+var icOverclockedHeatVent = <IC2:reactorVentGold:1>;
+var icOVScanner = <IC2:itemScannerAdv>;
+var icRawCarbonMesh = <IC2:itemPartCarbonMesh>;
+var icReactorChamber = <IC2:blockReactorChamber>;
+var icReactorHeatExchanger = <IC2:reactorHeatSwitchCore>;
+var icReactorHeatExchanger1 = <IC2:reactorHeatSwitchCore:1>;
+var icReactorHeatVent = <IC2:reactorVentCore:1>;
+var icReactorPlating = <IC2:reactorPlating>;
+var icRotorCarbon = <IC2:itemwcarbonrotor>;
+var icRotorIron = <IC2:itemironrotor>;
+var icRotorSteel = <IC2:itemsteelrotor>;
+var icRotorWood = <IC2:itemwoodrotor>;
+var icRSHCondensator1 = <IC2:reactorCondensator:1>;
+var icRSHCondensator9998 = <IC2:reactorCondensator:9998>;
+var icRTGGenerator = <IC2:blockGenerator:6>;
+var icRubberBoots = <IC2:itemArmorRubBoots>;
+var icScubaHelmet = <IC2:itemArmorHazmatHelmet>;
+var icShaftIron = <IC2:itemRecipePart:11>;
+var icShaftRefinedIron = <IC2:itemRecipePart:12>;
+var icSmallPowerUnit = <IC2:itemRecipePart:3>;
+var icSortingMachine = <IC2:blockMachine3:5>;
+var icSteelRotorBlade = <IC2:itemRecipePart:10>;
+var icStickyResin = <IC2:itemHarz>;
+var icTerraformer = <IC2:blockMachine:15>;
+var icTeslaCoil = <IC2:blockMachine2:1>;
+var icTFBP = <IC2:itemTFBP>;
+var icThickNeutronReflector = <IC2:reactorReflectorThick:1>;
+var icToolBox = <IC2:itemToolbox>;
+var icTransformerEV = <IC2:blockElectric:6>;
+var icTransformerHV = <IC2:blockElectric:5>;
+var icTransformerLV = <IC2:blockElectric:3>;
+var icTransformerMV = <IC2:blockElectric:4>;
+var icUFluidCell = <IC2:itemFluidCell>;
+var icUranium238 = <IC2:itemUran238>;
+var icUraniumBlock = <IC2:blockMetal:3>;
+var icWeedingTrowel = <IC2:itemWeedingTrowel>;
+var icWoodRotorBlade = <IC2:itemRecipePart:7>;
 
-var moduleConveyorLV = <gregtech:gt.metaitem.01:32630>;
-var moduleConveyorHV = <gregtech:gt.metaitem.01:32632>;
-var MOX = <IC2:itemMOX>;
-var nuggetWIron = <gregtech:gt.metaitem.01:9304>;
-var nuggetSteel = <gregtech:gt.metaitem.01:9305>;
-var nuggetIron = <gregtech:gt.metaitem.01:9032>;
-var ODScanner = <IC2:itemScanner:*>;
-var oreCoal = <ore:oreCoal>;
-var oreCopper = <ore:oreCopper>;
-var oreGold = <ore:oreGold>;
-var oreIron = <ore:oreIron>;
-var oreLead = <ore:oreLead>;
-var oreSilver = <ore:oreSilver>;
-var oreTin = <ore:oreTin>;
-var OVScanner = <IC2:itemScannerAdv>;
-var pistonElectricLV = <gregtech:gt.metaitem.01:32640>;
-var pistonElectricHV = <gregtech:gt.metaitem.01:32642>;
-var plateCarbon = <ore:plateAlloyCarbon>;
-var plateIron = <ore:plateIron>;
-var plateSteel = <ore:plateSteel>;
-var plateTungstenSteel = <ore:plateTungstenSteel>;
-var plateWood = <ore:plateWood>;
-var reBatteryAdv = <IC2:itemAdvBat>;
-var ringIridium = <ore:ringIridium>;
-var ringIron = <ore:ringIron>;
-var ringSteel = <ore:ringSteel>;
-var ringTungstenSteel = <ore:ringTungstenSteel>;
-var ringWood = <ore:ringWood>;
-var robotArmLV = <gregtech:gt.metaitem.01:32650>;
-var robotArmHV = <gregtech:gt.metaitem.01:32652>;
-var robotArmEV = <gregtech:gt.metaitem.01:32653>;
-var rotorBladeCarbon = <IC2:itemRecipePart:9>;
-var rotorBladeIron = <IC2:itemRecipePart:8>;
-var rotorBladeSteel = <IC2:itemRecipePart:10>;
-var rotorBladeWood = <IC2:itemRecipePart:7>;
-var rotorCarbon = <IC2:itemwcarbonrotor>;
-var rotorIron = <IC2:itemironrotor>;
-var rotorSteel = <IC2:itemsteelrotor>;
-var rotorWood = <IC2:itemwoodrotor>;
-var Screwdriver = <ore:craftingToolScrewdriver>;
-var screwIridium = <ore:screwIridium>;
-var screwIron = <ore:screwIron>;
-var sensorLV = <gregtech:gt.metaitem.01:32690>;
-var sensorHV = <gregtech:gt.metaitem.01:32692>;
-var shaftIron = <IC2:itemRecipePart:11>;
-var shaftSteel = <IC2:itemRecipePart:12>;
-var stickIron = <ore:stickIron>;
-var stone = <minecraft:stone>;
-var uraniumEnriched = <IC2:itemUran>;
-//var Wrench = <ore:craftingToolWrench>;
-var weedingtrowel = <IC2:itemWeedingTrowel>;
-var hammer	= <ore:craftingToolHardHammer>;
-var DiamondDust = <gregtech:gt.metaitem.01:2500>;
-var UFluidCell = <IC2:itemFluidCell>;
-var DrillLV = <gregtech:gt.metatool.01:101>;
-var WrenchLV = <gregtech:gt.metatool.01:120>;
+var mcBlockDiamond = <minecraft:diamond_block>;
+var mcBook = <minecraft:book>;
+var mcChest = <minecraft:chest>;
+var mcDiamond = <minecraft:diamond>;
+var mcInkSac = <minecraft:dye:0>;
+var mcIronBars = <minecraft:iron_bars>;
+var mcIronIngot = <minecraft:iron_ingot>;
+var mcLead = <minecraft:lead>;
+var mcPiston = <minecraft:piston>;
+var mcStone = <minecraft:stone>;
+var mcString = <minecraft:string>;
 
-var pumpLV = <gregtech:gt.metaitem.01:32610>;
-var pumpMV = <gregtech:gt.metaitem.01:32611>;
+var rcBlockCoalCoke = <Railcraft:cube>;
+var rcCoalCoke = <Railcraft:fuel.coke>;
 
-var TerraFormer = <IC2:blockMachine:15>;
-var HVblockCasing = <gregtech:gt.blockcasings:3>;
-var TFBP = <IC2:itemTFBP>;
-var circuitEFlow = <gregtech:gt.metaitem.01:32706>;
-var FieldGeneratorHV = <gregtech:gt.metaitem.01:32672>;
-var FieldGeneratorEV = <gregtech:gt.metaitem.01:32673>;
-var emitterMV = <gregtech:gt.metaitem.01:32681>;
-var emitterHV = <gregtech:gt.metaitem.01:32682>;
-var emitterEV = <gregtech:gt.metaitem.01:32683>;
-var cableHVGold = <gregtech:gt.blockmachines:1426>;
-var DataOrb = <gregtech:gt.metaitem.01:32707>;
+// Dictionaries
+var liquidCreosote = <liquid:creosote>;
+var liquidOxygen = <liquid:oxygen>;
 
-var NucReactor = <IC2:blockGenerator:5>;
-var RTG = <IC2:blockGenerator:6>;
-//val ReactorThickReflector = <IC2:reactorReflectorThick>;
-var LapotronicCrystal = <IC2:itemBatLamaCrystal:26>;
+var moltenAluminium = <liquid:molten.aluminium>;
+var moltenTin = <liquid:molten.tin>;
 
-var SmallPowerUnit = <IC2:itemRecipePart:3>;
-var ElectricWrench = <IC2:itemToolWrenchElectric>;
-var ElectricTreetap = <IC2:itemTreetapElectric>;
-var ElectricHoe = <IC2:itemToolHoe>;
-//var GTBatteryLV = <ore:calclavia:ADVANCED_BATTERY>;
+var oreAdvancedBattery = <ore:calclavia:ADVANCED_BATTERY>;
+var oreBatteryAdvanced = <ore:batteryAdvanced>;
+var oreBatteryBasic = <ore:batteryBasic>;
+var oreBatteryElite = <ore:batteryElite>;
+var oreBatteryMaster = <ore:batteryMaster>;
+var oreBlockCharcoal = <ore:blockCharcoal>;
+var oreBlockGlass = <ore:blockGlass>;
+var oreBlockLignite = <ore:blockLignite>;
+var oreBlockWool = <ore:blockWool>;
+var oreCableGt01Gold = <ore:cableGt01Gold>;
+var oreCableGt01Iron = <ore:cableGt01Iron>;
+var oreCableGt01Nickel = <ore:cableGt01Nickel>;
+var oreCableGt01Silver = <ore:cableGt01Silver>;
+var oreCableGt01SolderingAlloy = <ore:cableGt01SolderingAlloy>;
+var oreCableGt01Tin = <ore:cableGt01Tin>;
+var oreCableGt01TungstenSteel = <ore:cableGt01TungstenSteel>;
+var oreCableGt01Zinc = <ore:cableGt01Zinc>;
+var oreCableGt02Cobalt = <ore:cableGt02Cobalt>;
+var oreCableGt02Gold = <ore:cableGt02Gold>;
+var oreCableGt02Lead = <ore:cableGt02Lead>;
+var oreCellEmpty = <ore:cellEmpty>;
+var oreCircuitAdvanced = <ore:circuitAdvanced>;
+var oreCircuitBasic = <ore:circuitBasic>;
+var oreCircuitData = <ore:circuitData>;
+var oreCircuitGood = <ore:circuitGood>;
+var oreCircuitMaster = <ore:circuitMaster>;
+var oreCraftingGenerator = <ore:craftingGenerator>;
+var oreDustAnyCopper = <ore:dustAnyCopper>;
+var oreDustAnyIron = <ore:dustAnyIron>;
+var oreDustGlowstone = <ore:dustGlowstone>;
+var oreDustLead = <ore:dustLead>;
+var oreDustPureAnyIron = <ore:dustPureAnyIron>;
+var oreDustSmallAnyCopper = <ore:dustSmallAnyCopper>;
+var oreDustSmallAnyIron = <ore:dustSmallAnyIron>;
+var oreDustSulfur = <ore:dustSulfur>;
+var oreDustTinyAnyCopper = <ore:dustTinyAnyCopper>;
+var oreDustTinyAnyIron = <ore:dustTinyAnyIron>;
+var oreDyeOrange = <ore:dyeOrange>;
+var oreGearGtSmallStainlessSteel = <ore:gearGtSmallStainlessSteel>;
+var oreIngotAnyCopper = <ore:ingotAnyCopper>;
+var oreIngotAnyIron = <ore:ingotAnyIron>;
+var oreIngotDoubleAnyCopper = <ore:ingotDoubleAnyCopper>;
+var oreIngotDoubleAnyIron = <ore:ingotDoubleAnyIron>;
+var oreIngotPlutoniumFirst = <ore:ingotPlutonium>.firstItem;
+var oreIngotQuadrupleAnyCopper = <ore:ingotQuadrupleAnyCopper>;
+var oreIngotQuadrupleAnyIron = <ore:ingotQuadrupleAnyIron>;
+var oreIngotQuintupleAnyCopper = <ore:ingotQuintupleAnyCopper>;
+var oreIngotQuintupleAnyIron = <ore:ingotQuintupleAnyIron>;
+var oreIngotSteel = <ore:ingotSteel>;
+var oreIngotTripleAnyCopper = <ore:ingotTripleAnyCopper>;
+var oreIngotTripleAnyIron = <ore:ingotTripleAnyIron>;
+var oreIngotUraniumFirst = <ore:ingotUranium>.firstItem;
+var oreLensRed = <ore:craftingLensRed>;
+var oreNuggetAnyCopper = <ore:nuggetAnyCopper>;
+var oreNuggetAnyIron = <ore:nuggetAnyIron>;
+var oreNuggetUranium235First = <ore:nuggetUranium235>.firstItem;
+var oreOreAnyIron = <ore:oreAnyIron>;
+var orePlateAlloyAdvanced = <ore:plateAlloyAdvanced>; 
+var orePlateAlloyCarbon = <ore:plateAlloyCarbon>;
+var orePlateAluminium = <ore:plateAluminium>;
+var orePlateBeryllium = <ore:plateBeryllium>;
+var orePlateBlueSteel = <ore:plateBlueSteel>;
+var orePlateBronze = <ore:plateBronze>;
+var orePlateDenseBronze = <ore:plateDenseBronse>;
+var orePlateDenseElectrum = <ore:plateDenseElectrum>;
+var orePlateDenseLapis = <ore:plateDenseLapis>; 
+var orePlateDenseLead = <ore:plateDenseLead>; 
+var orePlateDenseTin = <ore:plateDenseTin>;
+var orePlateDiamond = <ore:plateDiamond>;
+var orePlateGlowstone = <ore:plateGlowstone>;
+var orePlateIron = <ore:plateIron>;
+var orePlateLapis = <ore:plateLapis>;
+var orePlateLead = <ore:plateLead>;
+var orePlateQuadrupleLead = <ore:plateQuadrupleLead>;
+var orePlateRedAlloy = <ore:plateRedAlloy>;
+var orePlateRedSteel = <ore:plateRedSteel>;
+var orePlateRubber = <ore:plateRubber>;
+var orePlateSilver = <ore:plateSilver>;
+var orePlateStainlessSteel = <ore:plateStainlessSteel>;
+var orePlateSteel = <ore:plateSteel>;
+var orePlateTungstenSteel = <ore:plateTungstenSteel>;
+var orePlateWood = <ore:plateWood>;
+var oreRingIridium = <ore:ringIridium>;
+var oreRingIron = <ore:ringIron>;
+var oreRingSteel = <ore:ringSteel>;
+var oreRingTungstenSteel = <ore:ringTungstenSteel>;
+var oreRingWood = <ore:ringWood>;
+var oreRotorStainlessSteel = <ore:rotorStainlessSteel>;
+var oreRotorSteel = <ore:rotorSteel>;
+var oreScrewIridium = <ore:screwIridium>;
+var oreScrewIron = <ore:screwIron>;
+var oreStickAnyIron = <ore:stickAnyIron>;
+var oreStickIron = <ore:stickIron>;
+var oreStickStainlessSteel = <ore:stickStainlessSteel>;
+var oreToolHardHammer = <ore:craftingToolHardHammer>;
+var oreToolHeadDrillStainlessSteel = <ore:toolHeadDrillStainlessSteel>;
+var oreToolScrewdriver = <ore:craftingToolScrewdriver>;
+var oreToolWrench = <ore:craftingToolWrench>;
+var oreWireCopper = <ore:craftingWireCopper>;
+var oreWireGt01Copper = <ore:wireGt01Copper>;
+var oreWireTin = <ore:craftingWireTin>;
 
-var steelFluidPipe = <gregtech:gt.blockmachines:5132>;
-#########################
-#	Variables
-#########################
-
-	val TinCable = <ore:craftingWireTin>;
-	val CopperCable = <ore:craftingWireCopper>;
-	val SilverCable = <ore:cableGt01Silver>;
-	val TungstenteelCable = <ore:cableGt01TungstenSteel>;
-
-	val CopperWire = <ore:wireGt01Copper>;
-
-	val SteelPlate = <ore:plateSteel>;
-	val RubberPlate = <ore:plateRubber>;
-	val BronzePlate = <ore:plateBronze>;
-	val AluminiumPlate = <ore:plateAluminium>;
-	val GlowstonePlate = <ore:plateGlowstone>;
-	val StainlessSteelPlate = <ore:plateStainlessSteel>;
-	val AdvancedAlloyPlate = <ore:plateAlloyAdvanced>; val specificAdvancedAlloyPlate = <IC2:itemPartAlloy>; 
-	val LeadPlate = <ore:plateLead>;
-	val IronPlate = <ore:plateIron>;
-	val BlueSteelPlate = <ore:plateBlueSteel>;
-	val RedSteelPlate = <ore:plateRedSteel>;
-	val SilverPlate = <ore:plateSilver>;
-	val DiamondPlate = <ore:plateDiamond>;
-	val CarbonPlate = <ore:plateAlloyCarbon>;
-	val LapisPlate = <ore:plateLapis>;
-	val BeriliumPlate = <ore:plateBerilium>;val specificBeriliumPlate = <gregtech:gt.metaitem.01:17008>;
-
-	val DenseLeadPlate = <ore:plateDenseLead>; val specificDenseLeadPlate = <gregtech:gt.metaitem.01:22089>;
-	val DenseBronsePlate = <ore:plateDenseBronse>;val specificDenseBronsePlate = <gregtech:gt.metaitem.01:22300>;
-	val DenseElectrumPlate = <ore:plateDenseElectrum>;
-	val DenseTinPlate = <ore:plateDenseTin>;
-	val RedAlloyPlate = <ore:plateRedAlloy>;
-	val DenseLapisPlate = <ore:plateDenseLapis>; val specificDenseLapisPlate = <IC2:itemDensePlates:8>;
-
-	val ReactorPlate = <IC2:reactorPlating>;
-	val ReactorHeatPlate = <IC2:reactorPlatingHeat>;
-	val ReactorExplosivePlate = <IC2:reactorPlatingExplosive>;
-	val ReactorHeatSwitch = <IC2:reactorHeatSwitch>;
-	val ReactorHeatSwitchCore = <IC2:reactorHeatSwitchCore>;
-	val ReactorHeatSwitchSpread = <IC2:reactorHeatSwitchSpread>;
-	val ReactorHeatVent = <IC2:reactorVent:1>;
-	val ReactorHeatVentCore = <IC2:reactorVentCore:1>;
-	val ReactorHeatVentGold = <IC2:reactorVentGold:1>;
-	val ReactorHeatVentDiamond = <IC2:reactorVentDiamond:1>;
-	val ReactorHeatVentSpread = <IC2:reactorVentSpread>;
-	val ReactorCondensator = <IC2:reactorCondensator>;
-	val ReactorReflector = <IC2:reactorReflector>;
-	val ReactorThickReflector = <IC2:reactorReflectorThick>;
-
-	val BasicBattery = <ore:batteryBasic>;
-	val AdvancedBattery = <ore:batteryAdvanced>;
-	val EliteBattery = <ore:batteryElite>;   //Energy Crystal
-	val MasterBattery = <ore:batteryMaster>; //Lapatron Crystal
-
-	val BasicCircuit = <ore:circuitBasic>;
-	val GoodCircuit = <ore:circuitGood>;
-	val AdvancedCircuit = <ore:circuitAdvanced>;
-	val MasterCircuit = <ore:circuitMaster>;
-
-	val SulfurDust = <ore:dustSulfur>;
-	val LeadDust = <ore:dustLead>;
-	val GlowstoneDust = <ore:dustGlowstone>;
-
-	val AnyIronStick = <ore:stickAnyIron>;
-
-	val HullLV = <gregtech:gt.blockmachines:11>;
-	val HullMV = <gregtech:gt.blockmachines:12>;
-	val HullHV = <gregtech:gt.blockmachines:13>;
-	val HullEV = <gregtech:gt.blockmachines:14>;
-
-	val HHammer = <ore:craftingToolHardHammer>;
-	val Wrench = <ore:craftingToolWrench>;
-
-	val MiningPipe = <IC2:blockMiningPipe>;
-	val Glass = <ore:blockGlass>;
-	val OrangeDye = <ore:dyeOrange>;
-	val EmptyCell = <IC2:itemFluidCell>;
-	val IronBars = <minecraft:iron_bars>;
-	val Piston = <minecraft:piston>;
-	val Chest = <minecraft:chest>;
-	val LargeSteelCell = <gregtech:gt.metaitem.01:32405>;
-	val LVMotor = <gregtech:gt.metaitem.01:32600>;
-	val MVMotor = <gregtech:gt.metaitem.01:32601>;
-	val HVMotor = <gregtech:gt.metaitem.01:32602>;
-	
-	val TurboDieselGenerator = <gregtech:gt.blockmachines:1112>;
-	val TurboSteamTurbine = <gregtech:gt.blockmachines:1122>;
-
-    
-    
-# Recipe Fixes
+// Lists
+var FluidCellList = [gtHeliumCell, gtHeliumCell, gtNitrogenCell, gtNitrogenCell] as IItemStack[];
+var WiresList = [gt2xVGaWire, gt2xNbTiWire, gt2xYBaCuWire, gt2xNqWire] as IItemStack[];
 
 
-	recipes.remove(<IC2:blockKineticGenerator:*>);
-	recipes.remove(<IC2:blockHeatGenerator:*>);
-	recipes.remove(<IC2:blockGenerator:*>);
-	recipes.remove(<IC2:blockMachine:*>);
-	recipes.remove(<IC2:blockMachine2:*>);
-	recipes.remove(<IC2:blockMachine3:*>);
-
-	recipes.remove(<IC2:blockPersonal:*>);
-	recipes.remove(<IC2:blockITNT>);
-	recipes.remove(<IC2:blockElectric:*>);
-
-    
+// Recipes
+// -- Full Removing --
+recipes.remove(<IC2:blockKineticGenerator:*>);
+recipes.remove(<IC2:blockHeatGenerator:*>);
+recipes.remove(<IC2:blockGenerator:*>);
+recipes.remove(<IC2:blockMachine:*>);
+recipes.remove(<IC2:blockMachine2:*>);
+recipes.remove(<IC2:blockMachine3:*>);
+recipes.remove(<IC2:blockPersonal:*>);
+recipes.remove(<IC2:blockITNT>);
+recipes.remove(<IC2:blockElectric:*>);
 recipes.remove(<IC2:itemScrapbox>);
 recipes.remove(<IC2:itemToolDrill:*>);
 recipes.remove(<IC2:itemToolDDrill:*>);
 recipes.remove(<IC2:itemToolIridiumDrill:*>);
 recipes.remove(<IC2:itemToolChainsaw:*>);
-
 recipes.remove(<IC2:itemToolWrench>);
 
-recipes.remove(OVScanner);
-recipes.addShaped(OVScanner, [
-	[itemCasingGold, energyCrystal, itemCasingGold],
-	[dustGlowstone, circuitAdvanced, dustGlowstone],
-	[cableGold1x, ODScanner, cableGold1x]]);
-
-# Recipe Tweaks
-recipes.remove(reBatteryAdv);
-recipes.addShaped(reBatteryAdv, [
-	[cableCopperAnnealed1x, itemCasingBronze, cableCopperAnnealed1x],
-	[itemCasingBronze, dustSulfur, itemCasingBronze],
-	[itemCasingBronze, dustLead, itemCasingBronze]]);
-recipes.remove(genKinWind);
-recipes.addShaped(genKinWind, [
-	[plateTungstenSteel, circuitAdvanced, plateTungstenSteel],
-	[cableGold2x, craftingGenerator, cableGold2x],
-	[HVMotor, coil, HVMotor]]);
-recipes.remove(rotorBladeWood);
-recipes.addShaped(rotorBladeWood, [
-	[plateWood, plateWood, plateWood],
-	[plateWood, ringWood, plateWood],
-	[plateWood, plateWood, plateWood]]);
-recipes.remove(rotorWood);
-recipes.addShaped(rotorWood, [
-	[stickIron, rotorBladeWood, HHammer],
-	[rotorBladeWood, ringIron, rotorBladeWood],
-	[Screwdriver, rotorBladeWood, screwIron]]);
-recipes.remove(rotorBladeIron);
-recipes.addShaped(rotorBladeIron, [
-	[plateIron, plateIron, plateIron],
-	[plateIron, ringSteel, plateIron],
-	[plateIron, plateIron, plateIron]]);
-recipes.remove(rotorIron);
-recipes.addShaped(rotorIron, [
-	[shaftIron, rotorBladeIron, HHammer],
-	[rotorBladeIron, ringSteel, rotorBladeIron],
-	[Wrench, rotorBladeIron, shaftIron]]);
-recipes.remove(rotorBladeSteel);
-recipes.addShaped(rotorBladeSteel, [
-	[plateSteel, plateSteel, plateSteel],
-	[plateSteel, ringTungstenSteel, plateSteel],
-	[plateSteel, plateSteel, plateSteel]]);
-recipes.remove(rotorSteel);
-recipes.addShaped(rotorSteel, [
-	[shaftSteel, rotorBladeSteel, HHammer],
-	[rotorBladeSteel, ringTungstenSteel, rotorBladeSteel],
-	[Wrench, rotorBladeSteel, shaftSteel]]);
-recipes.remove(rotorBladeCarbon);
-recipes.addShaped(rotorBladeCarbon, [
-	[plateCarbon, plateCarbon, plateCarbon],
-	[plateCarbon, ringIridium, plateCarbon],
-	[plateCarbon, plateCarbon, plateCarbon]]);
-recipes.remove(rotorCarbon);
-recipes.addShaped(rotorCarbon, [
-	[screwIridium, rotorBladeCarbon, HHammer],
-	[rotorBladeCarbon, rotorSteel, rotorBladeCarbon],
-	[Wrench, rotorBladeCarbon, screwIridium]]);
-	
-recipes.remove(weedingtrowel);
-recipes.addShaped(weedingtrowel, [
-	[<ore:stickIron>, hammer, <ore:stickIron>],
-	[null, <ore:stickIron>, null],
-	[<ore:plateRubber>, <ore:stickIron>, <ore:plateRubber>]]);
-	
-Canner.addRecipe(fuelRodUranium, uraniumEnriched, fuelRodEmpty, 200, 2);
-Canner.addRecipe(fuelRodMOX, MOX, fuelRodEmpty, 200, 2);
-recipes.remove(fuelRodThorium);
-Canner.addRecipe(fuelRodThorium, dustThorium * 3, fuelRodEmpty, 200, 2);
-
-
-recipes.removeShapeless(DiamondDust * 9, [<minecraft:diamond_block>]);
-recipes.removeShapeless(<minecraft:diamond> * 9, [<minecraft:diamond_block>]);
-recipes.remove(UFluidCell);
-
-# Specials
-SemiFluidGenerator.addFluid(<liquid:creosote> * 53, 8);
-
-// Fixing JABBA unification exploits
-// Iron/PigIron/WroughtIron
-<ore:ingotAnyIron>.remove(<gregtech:gt.metaitem.01:11304>);             // Wrought Iron Ingot
-<ore:ingotAnyIron>.remove(<gregtech:gt.metaitem.01:11307>);             // Pig Iron Ingot
-<ore:ingotDoubleAnyIron>.remove(<gregtech:gt.metaitem.01:13304>);       // Wrought Iron Ingot (Double)
-<ore:ingotDoubleAnyIron>.remove(<gregtech:gt.metaitem.01:13307>);       // Pig Iron Ingot (Double)
-<ore:ingotTripleAnyIron>.remove(<gregtech:gt.metaitem.01:14304>);       // Wrought Iron Ingot (Triple)
-<ore:ingotTripleAnyIron>.remove(<gregtech:gt.metaitem.01:14307>);       // Pig Iron Ingot (Triple)
-<ore:ingotQuadrupleAnyIron>.remove(<gregtech:gt.metaitem.01:15304>);    // Wrought Iron Ingot (Quadruple)
-<ore:ingotQuadrupleAnyIron>.remove(<gregtech:gt.metaitem.01:15307>);    // Pig Iron Ingot (Quadruple)
-<ore:ingotQuintupleAnyIron>.remove(<gregtech:gt.metaitem.01:16304>);    // Wrought Iron Ingot (Quintuple)
-<ore:ingotQuintupleAnyIron>.remove(<gregtech:gt.metaitem.01:16307>);    // Pig Iron Ingot (Quintuple)
-<ore:oreAnyIron>.remove(<gregtech:gt.blockores:307>);                   // Pig Iron Ore
-<ore:dustAnyIron>.remove(<gregtech:gt.metaitem.01:2304>);               // Wrought Iron Dust
-<ore:dustAnyIron>.remove(<gregtech:gt.metaitem.01:2307>);               // Pig Iron Dust
-<ore:dustPureAnyIron>.remove(<gregtech:gt.metaitem.01:4307>);           // Pig Iron Dust (Pure)
-<ore:dustPureAnyIron>.remove(<gregtech:gt.metaitem.01:3307>);           // Pig Iron Dust (Inpure)
-<ore:dustSmallAnyIron>.remove(<gregtech:gt.metaitem.01:1304>);          // Wrought Iron Dust (Small)
-<ore:dustSmallAnyIron>.remove(<gregtech:gt.metaitem.01:1307>);          // Pig Iron Dust (Small)
-<ore:dustTinyAnyIron>.remove(<gregtech:gt.metaitem.01:304>);            // Wrought Iron Dust (Tiny)
-<ore:dustTinyAnyIron>.remove(<gregtech:gt.metaitem.01:307>);            // Pig Iron Dust (Tiny)
-<ore:nuggetAnyIron>.remove(<gregtech:gt.metaitem.01:9304>);             // Wrought Iron Nugget
-<ore:nuggetAnyIron>.remove(<gregtech:gt.metaitem.01:9307>);             // Pig Iron Nugget
-// Copper/AnnealedCopper    
-<ore:ingotAnyCopper>.remove(<gregtech:gt.metaitem.01:11345>);           // Annealed Copper Ingot
-<ore:ingotDoubleAnyCopper>.remove(<gregtech:gt.metaitem.01:13345>);     // Annealed Copper Ingot (Double)
-<ore:ingotTripleAnyCopper>.remove(<gregtech:gt.metaitem.01:14345>);     // Annealed Copper Ingot (Triple)
-<ore:ingotQuadrupleAnyCopper>.remove(<gregtech:gt.metaitem.01:15345>);  // Annealed Copper Ingot (Quadruple)
-<ore:ingotQuintupleAnyCopper>.remove(<gregtech:gt.metaitem.01:16345>);  // Annealed Copper Ingot (Quintuple)
-<ore:dustAnyCopper>.remove(<gregtech:gt.metaitem.01:2345>);             // Annealed Copper Dust
-<ore:dustSmallAnyCopper>.remove(<gregtech:gt.metaitem.01:1345>);        // Annealed Copper Dust (Small)
-<ore:dustTinyAnyCopper>.remove(<gregtech:gt.metaitem.01:345>);          // Annealed Copper Dust (Tiny)
-<ore:nuggetAnyCopper>.remove(<gregtech:gt.metaitem.01:9345>);           // Annealed Copper Nugget
-
-var ingotWIron = <gregtech:gt.metaitem.01:11304>;
-//var WroughtNugget = <gregtech:gt.metaitem.01:9304>;
-var ingotIron = <minecraft:iron_ingot>;
-var MoldIngot = <gregtech:gt.metaitem.01:32306>;
-
-//AlloySmelter.removeRecipe(IronIngot, WroughtNugget * 9, MoldIngot);
-AlloySmelter.addRecipe(ingotWIron, nuggetWIron * 9, MoldIngot * 0, 200, 2);
-AlloySmelter.addRecipe(ingotIron, nuggetIron * 9, MoldIngot * 0, 201, 2);
-
-recipes.remove(MOX);
-recipes.remove(uraniumEnriched);
-
-AlloySmelter.addRecipe(MOX, <ore:ingotUranium>.firstItem * 6, <ore:ingotPlutonium>.firstItem * 3, 100, 48);
-AlloySmelter.addRecipe(uraniumEnriched, <ore:ingotUranium>.firstItem * 6, <ore:nuggetUranium235>.firstItem * 3, 100, 48);
-
-recipes.addShaped(<IC2:itemToolDrill>, [
-		[<ore:craftingToolWrench>, null, null],
-		[null, DrillLV, null],
-		[null, null, <ore:craftingToolScrewdriver>]]);
-
-//TerraFormer
-//recipes.remove(TerraFormer);
-//recipes.addShaped(TerraFormer, [
-//	[emitterHV, TFBP, sensorHV],
-//	[circuitEFlow, HVblockCasing, circuitEFlow],
-//	[cableHVGold, FieldGeneratorHV, cableHVGold]]);
-
-//recipes.remove(TFBP); 
-//Assembler.addRecipe(TFBP , DataOrb ,OVScanner, <liquid:molten.redstone> * 144, 100, 256);
-
-
-
-
-#########################
-#	Blocks		#
-#########################
-	//Bat Box+
-	recipes.addShaped(<IC2:blockElectric>, [
-	[TinCable, SteelPlate, TinCable],
-	[BasicBattery, HullLV, BasicBattery],
-	[BasicCircuit, BasicBattery , BasicCircuit]]);
-
-	//CESU
-	recipes.addShaped(<IC2:blockElectric:7>, [
-	[CopperCable, BronzePlate, CopperCable],
-	[AdvancedBattery, HullMV, AdvancedBattery],
-	[GoodCircuit, AdvancedBattery, GoodCircuit]]);
-
-	//MFE
-	recipes.addShaped(<IC2:blockElectric:1>, [
-	[SilverCable, EliteBattery, SilverCable],
-	[EliteBattery, HullHV, EliteBattery],
-	[AdvancedCircuit, EliteBattery, AdvancedCircuit]]);
-
-	//MFSU
-	recipes.addShaped(<IC2:blockElectric:2>, [
-	[TungstenteelCable, MasterBattery, TungstenteelCable],
-	[MasterBattery, HullEV, MasterBattery],
-	[MasterCircuit, MasterBattery, MasterCircuit]]);
-    
-    recipes.addShaped(<IC2:blockElectric:2>, [
-	[TungstenteelCable, MasterBattery, TungstenteelCable],
-	[MasterBattery, <IC2:blockElectric:1>, MasterBattery],
-	[MasterCircuit, MasterBattery, MasterCircuit]]);
-
-	//Mining Pipe
-	recipes.remove(MiningPipe);
-	recipes.addShapeless(MiningPipe, [steelFluidPipe]);
-    //recipes.addShapeless(steelFluidPipe, [MiningPipe]);
-
-	//LV Transformer+
-	recipes.addShapeless(<IC2:blockElectric:3>, [<gregtech:gt.blockmachines:21>]);
-	recipes.addShapeless(<gregtech:gt.blockmachines:21>, [<IC2:blockElectric:3>]);
-
-	//MV Transformer+
-	recipes.addShapeless(<IC2:blockElectric:4>, [<gregtech:gt.blockmachines:22>]);
-	recipes.addShapeless(<gregtech:gt.blockmachines:22>, [<IC2:blockElectric:4>]);
-
-	//HV Transformer+
-	recipes.addShapeless(<IC2:blockElectric:5>, [<gregtech:gt.blockmachines:23>]);
-	recipes.addShapeless(<gregtech:gt.blockmachines:23>, [<IC2:blockElectric:5>]);
-	//EV Transformer+
-	recipes.addShapeless(<IC2:blockElectric:6>, [<gregtech:gt.blockmachines:24>]);
-	recipes.addShapeless(<gregtech:gt.blockmachines:24>, [<IC2:blockElectric:6>]);
-
-	//Nuclear Reactor+
-	//recipes.remove(NucReactor);
-	recipes.addShaped(NucReactor, [
-		[circuitEnergyFlow, robotArmEV ,circuitEnergyFlow],
-		[<IC2:blockReactorChamber>, HullEV, <IC2:blockReactorChamber>],
-		[<IC2:reactorReflectorThick:1>, <IC2:blockReactorChamber>, <IC2:reactorReflectorThick:1>]]);
-
-	//RTG
-	//recipes.remove(RTG);
-	recipes.addShaped(RTG, [
-		[<ore:plateQuadrupleLead>, <ore:plateQuadrupleLead>, <ore:plateQuadrupleLead>],
-		[<ore:plateQuadrupleLead>, HullLV, <ore:plateQuadrupleLead>],
-		[circuitBasic, <ore:calclavia:ADVANCED_BATTERY>, circuitBasic]]);
-
-
-//Nuke
-recipes.remove(<IC2:blockNuke>);
-recipes.addShaped(<IC2:blockNuke>, [
-	[<IC2:reactorReflectorThick:1>, circuitAdvanced, <IC2:reactorReflectorThick:1>],
-	[<IC2:reactorReflectorThick:1>, <gregtech:gt.blockcasings:4>, <IC2:reactorReflectorThick:1>],
-	[<IC2:reactorReflectorThick:1>, circuitAdvanced, <IC2:reactorReflectorThick:1>]]);
-
-#########################
-#	Items
-#########################
-
-	//Hazmat Helmet+
-	recipes.remove(<IC2:itemArmorHazmatHelmet>);
-	recipes.addShaped(<IC2:itemArmorHazmatHelmet>,[
-	[null, OrangeDye, null],
-	[RubberPlate, Glass, RubberPlate],
-	[RubberPlate, <minecraft:iron_bars> , RubberPlate]]);
-
-	//Hazmat Chestplate+
-	recipes.remove(<IC2:itemArmorHazmatChestplate>);
-	recipes.addShaped(<IC2:itemArmorHazmatChestplate>,[
-	[RubberPlate, OrangeDye, RubberPlate],
-	[RubberPlate, RubberPlate, RubberPlate],
-	[RubberPlate, RubberPlate , RubberPlate]]);
-
-	//Hazmat Leggings+
-	recipes.remove(<IC2:itemArmorHazmatLeggings>);
-	recipes.addShaped(<IC2:itemArmorHazmatLeggings>,[
-	[RubberPlate, RubberPlate, RubberPlate],
-	[RubberPlate, OrangeDye, RubberPlate],
-	[RubberPlate, null , RubberPlate]]);
-
-	//Rubber Boots+
-	recipes.remove(<IC2:itemArmorRubBoots>);
-	recipes.addShaped(<IC2:itemArmorRubBoots>,[
-	[RubberPlate, null, RubberPlate],
-	[RubberPlate, null, RubberPlate],
-	[RubberPlate, <ore:blockWool> , RubberPlate]]);
-
-	//Bat Pack+
-	recipes.remove(<IC2:itemArmorBatpack>);
-	recipes.addShaped(<IC2:itemArmorBatpack>, [
-	[BasicBattery, BasicCircuit, BasicBattery],
-	[BasicBattery, AluminiumPlate, BasicBattery],
-	[BasicBattery, TinCable, BasicBattery]]);
-
-	//OD Scanner-
-	//recipes.remove(<IC2:itemScanner>);
-	//recipes.addShaped(<IC2:itemScanner>,[
-	//[StainlessSteelPlate, GlowstoneDust, StainlessSteelPlate],
-	//[GoodCircuit, AdvancedBattery, GoodCircuit],
-	//[StainlessSteelPlate, <gregtech:gt.metaitem.01:32682> , StainlessSteelPlate]]);
-
-	//OV Scanner-
-	//recipes.remove(<IC2:itemScannerAdv>);
-	//recipes.addShaped(<IC2:itemScannerAdv>,[
-	//[BlueSteelPlate, GlowstonePlate, BlueSteelPlate],
-	//[AdvancedCircuit, EliteBattery, AdvancedCircuit],
-	//[RedSteelPlate, <IC2:itemScanner> , RedSteelPlate]]);
-
-	//Mining Laser+
-	recipes.remove(<IC2:itemToolMiningLaser>);
-	recipes.addShaped(<IC2:itemToolMiningLaser>,[
-	[<ore:craftingLensRed>, <gregtech:gt.metaitem.01:32682>, EliteBattery],
-	[<ore:plateRedSteel>, <ore:plateRedSteel>, AdvancedCircuit],
-	[null, null , <ore:plateBlueSteel>]]);
-
-	//Advanced Battery-
-	//recipes.remove(AdvancedBattery);
-	//recipes.addShaped(<IC2:itemAdvBat:26>,[
-	//[CopperCable, BronzePlate, CopperCable],
-	//[BronzePlate, SulfurDust, BronzePlate],
-	//[BronzePlate, LeadDust, BronzePlate]]);
-
-	//Weeding Trowel-
-	//recipes.remove(<IC2:itemWeedingTrowel>);
-	//recipes.addShaped(<IC2:itemWeedingTrowel>, [
-	//[ null, <ore:toolHeadUniversalSpadeAnyIron>, null],
-	//[RubberPlate, AnyIronStick, RubberPlate],
-	//[RubberPlate, AnyIronStick, RubberPlate]]);
-
-	//CF Sprayer+
-	recipes.remove(<IC2:itemFoamSprayer>);
-	recipes.addShaped(<IC2:itemFoamSprayer>, [
-	[<IC2:itemCasing:4>, null, null],
-	[null, <IC2:itemCasing:4>, Piston],
-	[null, EmptyCell, <IC2:itemCasing:4>]]);
-
-	recipes.remove(<IC2:itemToolbox>);
-
-	//Containment Box-
-	//recipes.remove(<IC2:itemContainmentbox>);
-	//recipes.addShaped(<IC2:itemContainmentbox>, [
-	//[DenseLeadPlate, DenseLeadPlate, DenseLeadPlate],
-	//[DenseLeadPlate, Chest, DenseLeadPlate],
-	//[DenseLeadPlate, DenseLeadPlate, DenseLeadPlate]]);
-
-
-	//Reactor Plating+
-	recipes.remove(ReactorPlate);
-	FormingPress.addRecipe(ReactorPlate, specificAdvancedAlloyPlate * 8,
-	specificDenseLeadPlate, 200, 480);
-
-	//Reactor Heat Plating+
-	recipes.remove(ReactorHeatPlate);
-	FormingPress.addRecipe(ReactorHeatPlate, specificDenseBronsePlate,
-	ReactorPlate, 220, 480);
-
-	//Reactor Explosive Plating+
-	recipes.remove(ReactorExplosivePlate);
-	FormingPress.addRecipe(ReactorExplosivePlate, specificAdvancedAlloyPlate * 8, ReactorPlate, 220, 480);
-
-	//Heat Exchanger+
-	recipes.remove(<IC2:reactorHeatSwitch:1>);
-	Assembler.addRecipe(<IC2:reactorHeatSwitch:1>, <gregtech:gt.metaitem.01:21035>, <IC2:itemPartCircuit>, <liquid:molten.tin> * 432, 200, 60);
-	//recipes.addShaped(ReactorHeatSwitch, [
-	//[ReactorHeatPlate, SilverPlate, ReactorHeatPlate],
-	//[AluminiumPlate, AdvancedCircuit, AluminiumPlate],
-	//[ReactorHeatPlate, SilverPlate, ReactorHeatPlate]]);
-
-	//Reactor Heat Exchanger+
-	recipes.remove(<IC2:reactorHeatSwitchCore:1>);
-	Assembler.addRecipe(<IC2:reactorHeatSwitchCore:1>, <IC2:reactorHeatSwitch:1>, DenseCopperPlate, 200, 60);
-	//recipes.addShaped(ReactorHeatSwitchCore, [
-	//[ReactorHeatPlate, SilverPlate, ReactorHeatPlate],
-	//[SilverPlate, ReactorHeatSwitch, SilverPlate],
-	//[ReactorHeatPlate, SilverPlate, ReactorHeatPlate]]);
-
-	//Component Heat Exchanger+
-	recipes.remove(<IC2:reactorHeatSwitchSpread:1>);
-	Assembler.addRecipe(<IC2:reactorHeatSwitchSpread:1>, <IC2:reactorHeatSwitch:1>, QuadrupleGoldPlate, 200, 60);
-	//recipes.addShaped(ReactorHeatSwitchSpread, [
-	//[null, DenseElectrumPlate, null],
-	//[DenseElectrumPlate, ReactorHeatSwitchCore, DenseElectrumPlate],
-	//[null, DenseElectrumPlate, null]]);
-
-	//Heat Vent+
-	recipes.remove(ReactorHeatVent);
-	Assembler.addRecipe(ReactorHeatVent, LVMotor, IronBars * 4, <liquid:molten.aluminium> * 576, 200, 60);
-	//recipes.addShaped(ReactorHeatVent, [
-	//[ReactorPlate, IronBars, ReactorPlate],
-	//[IronBars, Wrench, IronBars],
-	//[ReactorPlate, IronBars, ReactorPlate]]);
-
-	//Reactor Heat Vent+
-	recipes.remove(ReactorHeatVentCore);
-	Assembler.addRecipe(ReactorHeatVentCore, ReactorHeatVent, DenseCopperPlate, 200, 60);
-	//recipes.addShaped(ReactorHeatVentCore, [
-	//[ReactorHeatPlate, SilverPlate, ReactorHeatPlate],
-	//[SilverPlate, ReactorHeatVent, SilverPlate],
-	//[ReactorHeatPlate, SilverPlate, ReactorHeatPlate]]);
-
-	//Overclocked Heat Vent+
-	recipes.remove(ReactorHeatVentGold);
-	Assembler.addRecipe(ReactorHeatVentGold, ReactorHeatVent, QuadrupleGoldPlate, 200, 60);
-	//recipes.addShaped(ReactorHeatVentGold, [
-	//[ReactorPlate, DenseElectrumPlate, ReactorPlate],
-	//[DenseElectrumPlate, ReactorHeatVentCore, DenseElectrumPlate],
-	//[ReactorPlate, DenseElectrumPlate, ReactorPlate]]);
-
-	//Advanced Heat Vent+
-	//recipes.remove(ReactorHeatVentDiamond);
-	//recipes.addShaped(ReactorHeatVentDiamond, [
-	//[ReactorHeatPlate, DiamondPlate, ReactorHeatPlate],
-	//[DiamondPlate, ReactorHeatVentGold, DiamondPlate],
-	//[ReactorHeatPlate, DiamondPlate, ReactorHeatPlate]]);
-
-	//Component Heat Vent+
-	recipes.remove(ReactorHeatVentSpread);
-	Assembler.addRecipe(ReactorHeatVentSpread, ReactorHeatVent, IronBars * 4, <liquid:molten.tin> * 576, 200, 60);
-	//recipes.addShaped(ReactorHeatVentSpread, [
-	//[ReactorPlate, DenseTinPlate, ReactorPlate],
-	//[DenseTinPlate, ReactorHeatVent, DenseTinPlate],
-	//[ReactorPlate, DenseTinPlate, ReactorPlate]]);
-
-	//Neutron Reflector+
-	recipes.remove(<IC2:reactorReflector:1>);
-	Assembler.addRecipe(<IC2:reactorReflector:1>, <gregtech:gt.metaitem.01:20089>, <gregtech:gt.metaitem.01:2535>*4, <liquid:molten.tin> * 576, 300, 60);
-	//recipes.addShaped(ReactorReflector, [
-	//[DenseTinPlate, CarbonPlate, DenseTinPlate],
-	//[CarbonPlate, ReactorHeatPlate, CarbonPlate],
-	//[DenseTinPlate, CarbonPlate, DenseTinPlate]]);
-
-	//Thick Neutron Reflector+
-	// recipes.remove(<IC2:reactorReflectorThick:1>);
-	// Assembler.addRecipe(<IC2:reactorReflectorThick:1>, <IC2:reactorReflector:1>*4, specificBeriliumPlate, 600 ,120);
-
-	//Iridium Neutron Reflector+
-	// recipes.remove(<gregtech:gt.neutronreflector>);
-	// Assembler.addRecipe(<gregtech:gt.neutronreflector>, <IC2:reactorReflectorThick:1> * 8, <IC2:itemPartIridium>, 600 ,500);
-
-
-	//RSH Condensator
-	recipes.remove(<IC2:reactorCondensator:1>);
-	recipes.addShaped(<IC2:reactorCondensator:1>, [
-	[RedAlloyPlate, ReactorHeatSwitchCore, RedAlloyPlate],
-	[RedAlloyPlate, ReactorHeatVentCore, RedAlloyPlate],
-	[RedAlloyPlate, ReactorHeatSwitchCore, RedAlloyPlate]]);
-	recipes.addShapeless(<IC2:reactorCondensator:1>, [<IC2:reactorCondensator:9998>, RedAlloyPlate, RedAlloyPlate, RedAlloyPlate]);
-
-	
-	//Coke coal block
-	recipes.remove(<Railcraft:cube>);
-	Compressor.addRecipe(<Railcraft:cube>, <Railcraft:fuel.coke> * 9);
-
-	//Lignite dust fix
-	recipes.removeShapeless(<gregtech:gt.metaitem.01:2538> * 9, [<gregtech:gt.blockgem2:1>]);
-	//Charcoal dust fix
-	recipes.removeShapeless(<gregtech:gt.metaitem.01:2536> * 9, [<gregtech:gt.blockgem3:4>]);
-
-
-	//LZH Condensator+
-	recipes.remove(<IC2:reactorCondensatorLap:1>);
-	recipes.addShaped(<IC2:reactorCondensatorLap:1>, [
-	[LapisPlate, ReactorHeatVentGold, LapisPlate],
-	[<IC2:reactorCondensator:1>, LapisPlate, <IC2:reactorCondensator:1>],
-	[LapisPlate, ReactorHeatSwitchSpread, LapisPlate]]);
-	recipes.addShapeless(<IC2:reactorCondensatorLap:1>, [<IC2:reactorCondensatorLap:9998>, LapisPlate, LapisPlate, LapisPlate]);
-
-	//Biogas Jetpack-
-	//recipes.remove(<IC2:itemArmorJetpack>);
-	//recipes.addShaped(<IC2:itemArmorJetpack>, [
-	//[StainlessSteelPlate, AdvancedCircuit, StainlessSteelPlate],
-	//[LargeSteelCell, TurboDieselGenerator, LargeSteelCell],
-	//[HVMotor, null, HVMotor]]);
-
-var ic2MfeUpgrade = <IC2:itemupgradekit>;
-NEI.hide(ic2MfeUpgrade);
-recipes.remove(ic2MfeUpgrade);
-    
-//LV Cable Using Unification
-var CableLV = <ore:cableGt01Tin>;
-
-CableLV.addAll(<ore:cableGt02Cobalt>);
-CableLV.addAll(<ore:cableGt02Lead>);
-CableLV.addAll(<ore:cableGt01SolderingAlloy>);
-CableLV.addAll(<ore:cableGt01Zinc>);
-CableLV.addAll(<ore:cableGt01Iron>);
-CableLV.addAll(<ore:cableGt01Nickel>);
-
-//Superconductor Buff
-var celNitrogen = <gregtech:gt.metaitem.01:30012>;
-var celHelium = <gregtech:gt.metaitem.01:30004>;
-var VaG2wire = <gregtech:gt.blockmachines:1741>;
-var NTi2wire = <gregtech:gt.blockmachines:1721>;
-var YtBa2wire = <gregtech:gt.blockmachines:1761>;
-var Naq2wire = <gregtech:gt.blockmachines:1701>;
-var STungPipe = <gregtech:gt.blockmachines:5161>;
-var SupercondWire = <gregtech:gt.blockmachines:2020>;
-
-var myFluidCells = [celHelium, celHelium, celNitrogen, celNitrogen] as IItemStack[];
-var myWires = [VaG2wire, NTi2wire, YtBa2wire, Naq2wire] as IItemStack[];
-
-for i, Cell in myFluidCells {
-	var Wire = myWires[i];
-	recipes.addShaped(SupercondWire * 6, [
-		[celNitrogen, pumpMV, STungPipe],
+// -- OV Scanner --
+recipes.remove(icOVScanner);
+recipes.addShaped(icOVScanner, [
+	[icGoldItemCasing, icEnergyCrystal, icGoldItemCasing],
+	[oreDustGlowstone, oreCircuitAdvanced, oreDustGlowstone],
+	[oreCableGt01Gold, icODScannerMeta, oreCableGt01Gold]]);
+
+// -- Advanced RE-Battery -- 
+recipes.remove(icAdvancedREBattery);
+recipes.addShaped(icAdvancedREBattery, [
+	[gt1xAnnealedCopperCable, icBronzeItemCasing, gt1xAnnealedCopperCable],
+	[icBronzeItemCasing, oreDustSulfur, icBronzeItemCasing],
+	[icBronzeItemCasing, oreDustLead, icBronzeItemCasing]]);
+
+// -- Kinetic Wind Generator --
+recipes.remove(icKineticWindGenerator);
+recipes.addShaped(icKineticWindGenerator, [
+	[orePlateTungstenSteel, oreCircuitAdvanced, orePlateTungstenSteel],
+	[oreCableGt02Gold, oreCraftingGenerator, oreCableGt02Gold],
+	[gtMotorHV, icCoil, gtMotorHV]]);
+
+// -- Wood Rotor Blade --
+recipes.remove(icWoodRotorBlade);
+recipes.addShaped(icWoodRotorBlade, [
+	[orePlateWood, orePlateWood, orePlateWood],
+	[orePlateWood, oreRingWood, orePlateWood],
+	[orePlateWood, orePlateWood, orePlateWood]]);
+
+// -- Kinetic Gearbox Rotor (Wood) --
+recipes.remove(icRotorWood);
+recipes.addShaped(icRotorWood, [
+	[oreStickIron, icWoodRotorBlade, oreToolHardHammer],
+	[icWoodRotorBlade, oreRingIron, icWoodRotorBlade],
+	[oreToolScrewdriver, icWoodRotorBlade, oreScrewIron]]);
+
+// -- Iron Rotor Blade --
+recipes.remove(icIronRotorBlade);
+recipes.addShaped(icIronRotorBlade, [
+	[orePlateIron, orePlateIron, orePlateIron],
+	[orePlateIron, oreRingSteel, orePlateIron],
+	[orePlateIron, orePlateIron, orePlateIron]]);
+
+// -- Kinetic Gearbox Rotor (Iron) --
+recipes.remove(icRotorIron);
+recipes.addShaped(icRotorIron, [
+	[icShaftIron, icIronRotorBlade, oreToolHardHammer],
+	[icIronRotorBlade, oreRingSteel, icIronRotorBlade],
+	[oreToolWrench, icIronRotorBlade, icShaftIron]]);
+
+// -- Steel Rotor Blade --
+recipes.remove(icSteelRotorBlade);
+recipes.addShaped(icSteelRotorBlade, [
+	[orePlateSteel, orePlateSteel, orePlateSteel],
+	[orePlateSteel, oreRingTungstenSteel, orePlateSteel],
+	[orePlateSteel, orePlateSteel, orePlateSteel]]);
+
+// -- Kinetic Gearbox Rotor (Steel) --
+recipes.remove(icRotorSteel);
+recipes.addShaped(icRotorSteel, [
+	[icShaftRefinedIron, icSteelRotorBlade, oreToolHardHammer],
+	[icSteelRotorBlade, oreRingTungstenSteel, icSteelRotorBlade],
+	[oreToolWrench, icSteelRotorBlade, icShaftRefinedIron]]);
+
+// -- Carbon Rotor Blade --
+recipes.remove(icCarbonRotorBlade);
+recipes.addShaped(icCarbonRotorBlade, [
+	[orePlateAlloyCarbon, orePlateAlloyCarbon, orePlateAlloyCarbon],
+	[orePlateAlloyCarbon, oreRingIridium, orePlateAlloyCarbon],
+	[orePlateAlloyCarbon, orePlateAlloyCarbon, orePlateAlloyCarbon]]);
+
+// -- Kinetic Gearbox Rotor (Carbon) --
+recipes.remove(icRotorCarbon);
+recipes.addShaped(icRotorCarbon, [
+	[oreScrewIridium, icCarbonRotorBlade, oreToolHardHammer],
+	[icCarbonRotorBlade, icRotorSteel, icCarbonRotorBlade],
+	[oreToolWrench, icCarbonRotorBlade, oreScrewIridium]]);
+
+// -- Weeding Trowel --	
+recipes.remove(icWeedingTrowel);
+recipes.addShaped(icWeedingTrowel, [
+	[oreStickIron, oreToolHardHammer, oreStickIron],
+	[null, oreStickIron, null],
+	[orePlateRubber, oreStickIron, orePlateRubber]]);
+
+// -- Diamond Block Fix --
+recipes.removeShapeless(gtDiamondDust * 9, [mcBlockDiamond]);
+recipes.removeShapeless(mcDiamond * 9, [mcBlockDiamond]);
+
+// -- Universal Fluid Cell --
+recipes.remove(icUFluidCell);
+
+// -- Wrought Iron Ingot --
+AlloySmelter.addRecipe(gtWroughtIronIngot, gtWroughtIronNugget * 9, gtMoldIngot * 0, 200, 2);
+
+// -- Iron Ingot --
+AlloySmelter.addRecipe(mcIronIngot, gtIronNugget * 9, gtMoldIngot * 0, 201, 2);
+
+// -- MOX Nuclear Fuel --
+recipes.remove(icMOX);
+AlloySmelter.addRecipe(icMOX, oreIngotUraniumFirst * 6, oreIngotPlutoniumFirst * 3, 100, 48);
+
+// -- Enriched Uranium Nuclear Fuel --
+recipes.remove(icEnrichedUranium);
+AlloySmelter.addRecipe(icEnrichedUranium, oreIngotUraniumFirst * 6, oreNuggetUranium235First * 3, 100, 48);
+
+// -- Mining Drill --
+recipes.addShaped(icMiningDrill, [
+		[oreToolWrench, null, null],
+		[null, gtDrillLV, null],
+		[null, null, oreToolScrewdriver]]);
+
+// -- Bat Box --
+recipes.addShaped(icBatBox, [
+	[oreWireTin, orePlateSteel, oreWireTin],
+	[oreBatteryBasic, gtMachineHullLV, oreBatteryBasic],
+	[oreCircuitBasic, oreBatteryBasic , oreCircuitBasic]]);
+
+// -- CESU --
+recipes.addShaped(icCESU, [
+	[oreWireCopper, orePlateBronze, oreWireCopper],
+	[oreBatteryAdvanced, gtMachineHullMV, oreBatteryAdvanced],
+	[oreCircuitGood, oreBatteryAdvanced, oreCircuitGood]]);
+
+// -- MFE --
+recipes.addShaped(icMFE, [
+	[oreCableGt01Silver, oreBatteryElite, oreCableGt01Silver],
+	[oreBatteryElite, gtMachineHullHV, oreBatteryElite],
+	[oreCircuitAdvanced, oreBatteryElite, oreCircuitAdvanced]]);
+
+// -- MFSU --
+recipes.addShaped(icMFSU, [
+	[oreCableGt01TungstenSteel, oreBatteryMaster, oreCableGt01TungstenSteel],
+	[oreBatteryMaster, gtMachineHullEV, oreBatteryMaster],
+	[oreCircuitMaster, oreBatteryMaster, oreCircuitMaster]]);
+recipes.addShaped(icMFSU, [
+	[oreCableGt01TungstenSteel, oreBatteryMaster, oreCableGt01TungstenSteel],
+	[oreBatteryMaster, icMFE, oreBatteryMaster],
+	[oreCircuitMaster, oreBatteryMaster, oreCircuitMaster]]);
+
+// -- Mining Pipe --
+recipes.remove(icMiningPipe);
+recipes.addShapeless(icMiningPipe, [gtSteelFluidPipe]);
+
+// -- LV Transformer --
+recipes.addShapeless(icTransformerLV, [gtTransformerLV]);
+recipes.addShapeless(gtTransformerLV, [icTransformerLV]);
+
+// -- MV Transformer --
+recipes.addShapeless(icTransformerMV, [gtTransformerMV]);
+recipes.addShapeless(gtTransformerMV, [icTransformerMV]);
+
+// -- HV Transformer --
+recipes.addShapeless(icTransformerHV, [gtTransformerHV]);
+recipes.addShapeless(gtTransformerHV, [icTransformerHV]);
+
+// -- EV Transformer --
+recipes.addShapeless(icTransformerEV, [gtTransformerEV]);
+recipes.addShapeless(gtTransformerEV, [icTransformerEV]);
+
+// -- Nuclear Reactor --
+recipes.addShaped(icNuclearReactor, [
+	[gtEnergyFlowCircuit, gtRobotArmEV ,gtEnergyFlowCircuit],
+	[icReactorChamber, gtMachineHullEV, icReactorChamber],
+	[icThickNeutronReflector, icReactorChamber, icThickNeutronReflector]]);
+
+// -- Radioisotope Thermoelectric Generator --
+recipes.addShaped(icRTGGenerator, [
+	[orePlateQuadrupleLead, orePlateQuadrupleLead, orePlateQuadrupleLead],
+	[orePlateQuadrupleLead, gtMachineHullLV, orePlateQuadrupleLead],
+	[oreCircuitBasic, oreAdvancedBattery, oreCircuitBasic]]);
+
+// -- Nuke --
+recipes.remove(icNuke);
+recipes.addShaped(icNuke, [
+	[icThickNeutronReflector, oreCircuitAdvanced, icThickNeutronReflector],
+	[icThickNeutronReflector, gtMachineCasingEV, icThickNeutronReflector],
+	[icThickNeutronReflector, oreCircuitAdvanced, icThickNeutronReflector]]);
+
+// -- Hazmat Helmet --
+recipes.remove(icScubaHelmet);
+recipes.addShaped(icScubaHelmet,[
+	[null, oreDyeOrange, null],
+	[orePlateRubber, oreBlockGlass, orePlateRubber],
+	[orePlateRubber, mcIronBars , orePlateRubber]]);
+
+// -- Hazmat Chestplate --
+recipes.remove(icHazmatSuit);
+recipes.addShaped(icHazmatSuit,[
+	[orePlateRubber, oreDyeOrange, orePlateRubber],
+	[orePlateRubber, orePlateRubber, orePlateRubber],
+	[orePlateRubber, orePlateRubber , orePlateRubber]]);
+
+// -- Hazmat Leggings --
+recipes.remove(icHazmatLeggings);
+recipes.addShaped(icHazmatLeggings,[
+	[orePlateRubber, orePlateRubber, orePlateRubber],
+	[orePlateRubber, oreDyeOrange, orePlateRubber],
+	[orePlateRubber, null , orePlateRubber]]);
+
+// -- Rubber Boots --
+recipes.remove(icRubberBoots);
+recipes.addShaped(icRubberBoots,[
+	[orePlateRubber, null, orePlateRubber],
+	[orePlateRubber, null, orePlateRubber],
+	[orePlateRubber, oreBlockWool , orePlateRubber]]);
+
+// -- Bat Pack --
+recipes.remove(icBatPack);
+recipes.addShaped(icBatPack, [
+	[oreBatteryBasic, oreCircuitBasic, oreBatteryBasic],
+	[oreBatteryBasic, orePlateAluminium, oreBatteryBasic],
+	[oreBatteryBasic, oreWireTin, oreBatteryBasic]]);
+
+// -- OD Scanner --
+recipes.remove(icODScanner);
+recipes.addShaped(icODScanner,[
+	[icGoldItemCasing, oreDustGlowstone, icGoldItemCasing],
+	[oreCircuitGood, oreBatteryAdvanced, oreCircuitGood],
+	[oreWireCopper, oreWireCopper , oreWireCopper]]);
+
+// -- Mining Laser --
+recipes.remove(icMiningLaser);
+recipes.addShaped(icMiningLaser,[
+	[oreLensRed, gtEmitterHV, oreBatteryElite],
+	[orePlateRedSteel, orePlateRedSteel, oreCircuitAdvanced],
+	[null, null , orePlateBlueSteel]]);
+
+// -- CF Sprayer --
+recipes.remove(icCFSprayer);
+recipes.addShaped(icCFSprayer, [
+	[icIronItemCasing, null, null],
+	[null, icIronItemCasing, mcPiston],
+	[null, icUFluidCell, icIronItemCasing]]);
+
+// -- Tool Box --
+recipes.remove(icToolBox);
+
+// -- Reactor Plating --
+recipes.remove(icReactorPlating);
+FormingPress.addRecipe(icReactorPlating, icAdvancedAlloy * 8, gtDenseLeadPlate, 200, 480);
+
+// -- Reactor Heat Plating --
+recipes.remove(icHeatReactorPlating);
+FormingPress.addRecipe(icHeatReactorPlating, gtDenseBronzePlate, icReactorPlating, 220, 480);
+
+// -- Reactor Explosive Plating --
+recipes.remove(icContainmentReactorPlating);
+FormingPress.addRecipe(icContainmentReactorPlating, icAdvancedAlloy * 8, icReactorPlating, 220, 480);
+
+// -- Heat Exchanger --
+recipes.remove(icHeatExchanger1);
+Assembler.addRecipe(icHeatExchanger1, gtQuintupleCopperPlate, icElectronicCircuit, moltenTin * 432, 200, 60);
+
+// -- Reactor Heat Exchanger --
+recipes.remove(icReactorHeatExchanger1);
+Assembler.addRecipe(icReactorHeatExchanger1, icHeatExchanger1, gtDenseCopperPlate, 200, 60);
+
+// -- Component Heat Exchanger --
+recipes.remove(icComponentHeatExchanger1);
+Assembler.addRecipe(icComponentHeatExchanger1, icHeatExchanger1, gtQuadrupleGoldPlate, 200, 60);
+
+// -- Heat Vent --
+recipes.remove(icHeatVent1);
+Assembler.addRecipe(icHeatVent1, gtMotorLV, mcIronBars * 4, moltenAluminium * 576, 200, 60);
+
+// -- Reactor Heat Vent --
+recipes.remove(icReactorHeatVent);
+Assembler.addRecipe(icReactorHeatVent, icHeatVent1, gtDenseCopperPlate, 200, 60);
+
+// -- Overclocked Heat Vent --
+recipes.remove(icOverclockedHeatVent);
+Assembler.addRecipe(icOverclockedHeatVent, icHeatVent1, gtQuadrupleGoldPlate, 200, 60);
+
+// -- Component Heat Vent --
+recipes.remove(icComponentHeatVent);
+Assembler.addRecipe(icComponentHeatVent, icHeatVent1, mcIronBars * 4, moltenTin * 576, 200, 60);
+
+// -- Neutron Reflector --
+recipes.remove(icNeutronReflector1);
+Assembler.addRecipe(icNeutronReflector1, gtQuadrupleLeadPlate, gtCoalDust * 4, moltenTin * 576, 300, 60);
+
+// -- RSH Condensator --
+recipes.remove(icRSHCondensator1);
+recipes.addShaped(icRSHCondensator1, [
+	[orePlateRedAlloy, icReactorHeatExchanger, orePlateRedAlloy],
+	[orePlateRedAlloy, icReactorHeatVent, orePlateRedAlloy],
+	[orePlateRedAlloy, icReactorHeatExchanger, orePlateRedAlloy]]);
+recipes.addShapeless(icRSHCondensator1, [icRSHCondensator9998, orePlateRedAlloy, orePlateRedAlloy, orePlateRedAlloy]);
+
+// -- LZH Condensator --
+recipes.remove(icLZHCondensator1);
+recipes.addShaped(icLZHCondensator1, [
+	[orePlateLapis, icOverclockedHeatVent, orePlateLapis],
+	[icRSHCondensator1, orePlateLapis, icRSHCondensator1],
+	[orePlateLapis, icComponentHeatExchanger, orePlateLapis]]);
+recipes.addShapeless(icLZHCondensator1, [icLZHCondensator9998, orePlateLapis, orePlateLapis, orePlateLapis]);
+
+// -- Coke Coal Block --
+recipes.remove(rcBlockCoalCoke);
+Compressor.addRecipe(rcBlockCoalCoke, rcCoalCoke * 9);
+
+// -- Lignite Dust Fix --
+recipes.removeShapeless(gtLigniteDust * 9, [gtBlockLignite]);
+
+// -- Charcoal Dust Fix --
+recipes.removeShapeless(gtCharcoalDust * 9, [gtBlockCharcoal]);
+
+// -- MFSU Upgrade Kit
+recipes.remove(icMFSUUpgradeKit);
+
+// -- Superconductor Buff --
+for i, Cell in FluidCellList {
+	var Wire = WiresList[i];
+	recipes.addShaped(gt1xSuperconductorWire * 6, [
+		[gtNitrogenCell, gtPumpCoverMV, gtSmallTungstensteelPipe],
 		[Wire, Wire, Wire],
-		[Cell, pumpMV, STungPipe]]);
+		[Cell, gtPumpCoverMV, gtSmallTungstensteelPipe]]);
 }
 
-//Electric tool
-recipes.remove(SmallPowerUnit);
-recipes.addShaped(SmallPowerUnit, [
-	[null, <ore:craftingWireCopper>, <IC2:itemCasing:4>],
-	[BasicBattery, circuitBasic, LVMotor],
-	[null, <ore:craftingWireCopper>, <IC2:itemCasing:4>]]);
+// -- Small Power Unit --
+recipes.remove(icSmallPowerUnit);
+recipes.addShaped(icSmallPowerUnit, [
+	[null, oreWireCopper, icIronItemCasing],
+	[oreBatteryBasic, oreCircuitBasic, gtMotorLV],
+	[null, oreWireCopper, icIronItemCasing]]);
 
-recipes.remove(ElectricTreetap);
-recipes.addShaped(ElectricTreetap, [
-	[null, <ore:gearGtSmallStainlessSteel>, null],
-	[<ore:stickStainlessSteel>, SmallPowerUnit, <ore:plateStainlessSteel>],
-	[<ore:stickStainlessSteel>, null, null]]);
+// -- Electric Treetap --
+recipes.remove(icElectricTreetap);
+recipes.addShaped(icElectricTreetap, [
+	[null, oreGearGtSmallStainlessSteel, null],
+	[oreStickStainlessSteel, icSmallPowerUnit, orePlateStainlessSteel],
+	[oreStickStainlessSteel, null, null]]);
 
-recipes.remove(ElectricHoe);
-recipes.addShaped(ElectricHoe, [
-	[<ore:rotorStainlessSteel>, <ore:stickStainlessSteel>, null],
-	[null, SmallPowerUnit, null],
-	[null, <ore:plateStainlessSteel>, null]]);
+// -- Electric Hoe --
+recipes.remove(icElectricHoe);
+recipes.addShaped(icElectricHoe, [
+	[oreRotorStainlessSteel, oreStickStainlessSteel, null],
+	[null, icSmallPowerUnit, null],
+	[null, orePlateStainlessSteel, null]]);
 
-recipes.remove(ElectricWrench);
-recipes.addShapeless(ElectricWrench, [<BuildCraft|Core:wrenchItem>, SmallPowerUnit]);
+// -- Electric Wrench --
+recipes.remove(icElectricWrench);
+recipes.addShapeless(icElectricWrench, [bcWrench, icSmallPowerUnit]);
 
-//recipes.remove(<BuildCraft|Core:wrenchItem>);
-//recipes.addShapeless(<BuildCraft|Core:wrenchItem>, [<gregtech:gt.metatool.01:16>, <ore:craftingToolFile>]);
+// -- Basic Machine Casing
+recipes.addShapeless(icBasicMachineCasing, [gtMachineCasingULV]);
 
-var ULVCasing = <gregtech:gt.blockcasings>;
-recipes.addShapeless(<IC2:blockMachine>, [ULVCasing]);
+// -- Miner --
+recipes.addShaped(icMiner, [
+	[null, mcChest, null],
+	[oreCircuitBasic, gtMachineHullLV, oreCircuitBasic],
+	[icMiningPipe, oreAdvancedBattery, icMiningPipe]]);
+ArcFurnace.addRecipe([gtSteelIngot * 14, gtAnnealedCopperIngot * 4, gtBatteryAlloyIngot, gtTinIngot], icMiner, liquidOxygen * 2880, [10000, 10000, 10000, 10000], 800, 96);
 
-var aluminiumIngot = <gregtech:gt.metaitem.01:11019>;
-var annealedCopperIngot = <gregtech:gt.metaitem.01:11345>;
-var batteryAlloyIngot = <gregtech:gt.metaitem.01:11315>;
-var bronzeIngot = <gregtech:gt.metaitem.01:11300>;
-var electrumIngot = <gregtech:gt.metaitem.01:11303>;
-var steelIngot = <gregtech:gt.metaitem.01:11305>;
-var tinIngot = <gregtech:gt.metaitem.01:11057>;
-var wroughtIronIngot = <gregtech:gt.metaitem.01:11304>;
-var goldIngot = <minecraft:gold_ingot>;
-var ststeelIngot = <gregtech:gt.metaitem.01:11306>;
+// -- Advanced Miner --
+recipes.addShaped(icAdvancedMiner, [
+	[gtElectricPistonHV, gtMachineHullHV, gtConveyorModuleHV],
+	[oreCircuitAdvanced, icMiningPipe, oreCircuitAdvanced],
+	[oreCableGt01Silver, oreToolHeadDrillStainlessSteel, oreCableGt01Silver]]);
+ArcFurnace.addRecipe([gtSteelIngot * 9, gtAnnealedCopperIngot * 24, gtStainlessStellIngot * 20, gtGoldIngot * 7], icAdvancedMiner, liquidOxygen * 5904, [10000, 10000, 10000, 10000], 1640, 96);
 
-// Miner
-recipes.addShaped(<IC2:blockMachine:7>, [
-[null, Chest, null],
-[circuitBasic, HullLV, circuitBasic],
-[MiningPipe, <ore:calclavia:ADVANCED_BATTERY>, MiningPipe]]);
+// -- Magnetizer --
+recipes.addShaped(icMagnetizer, [
+	[gtMagneticSteelSpring, icIronFence, gtMagneticSteelSpring],
+	[oreAdvancedBattery, gtMachineHullLV, oreAdvancedBattery],
+	[gtMagneticSteelSpring, icIronFence, gtMagneticSteelSpring]]);
+ArcFurnace.addRecipe([gtSteelIngot * 12, gtWroughtIronIngot, gtBatteryAlloyIngot * 2, gtTinIngot * 2], icMagnetizer, liquidOxygen * 2448, [10000, 10000, 10000, 10000], 680, 96);
 
-ArcFurnace.addRecipe([steelIngot * 14, annealedCopperIngot * 4, batteryAlloyIngot, tinIngot], <IC2:blockMachine:7>, <liquid:oxygen> * 2880, [10000, 10000, 10000, 10000], 800, 96);
+// -- Tesla Coil -- 
+recipes.addShaped(icTeslaCoil, [
+	[gtEmitterMV, gtAluminiumSpring, gtEmitterMV],
+	[gtAluminiumSpring, gtMachineHullMV, gtAluminiumSpring],
+	[gtEmitterMV, gtAluminiumSpring, gtEmitterMV]]);
+ArcFurnace.addRecipe([gtAluminiumIngot * 12, gtAnnealedCopperIngot * 5, gtElectrumIngot * 8], icTeslaCoil, liquidOxygen * 3600, [10000, 10000, 10000], 1000, 96);
 
-//Advanced Miner+
-recipes.addShaped(<IC2:blockMachine2:11>, [
-[pistonElectricHV, HullHV, moduleConveyorHV],
-[AdvancedCircuit, MiningPipe, AdvancedCircuit],
-[SilverCable, <ore:toolHeadDrillStainlessSteel>, SilverCable]]);
+// -- Fluid Regulator --
+recipes.addShaped(icFluidRegulator, [
+	[oreCircuitGood, gtPumpCoverMV, oreCircuitGood],
+	[gtSteelFluidPipe, gtMachineHullMV, gtSteelFluidPipe],
+	[oreCircuitGood, icUFluidCell, oreCircuitGood]]);
+ArcFurnace.addRecipe([gtAluminiumIngot * 9, gtAnnealedCopperIngot * 13, gtSteelIngot * 9, gtTinIngot * 2], icFluidRegulator, liquidOxygen * 4752, [10000, 10000, 10000, 10000], 1320, 96);
 
-ArcFurnace.addRecipe([steelIngot * 9, annealedCopperIngot * 24, ststeelIngot * 20, goldIngot * 7], <IC2:blockMachine2:11>, <liquid:oxygen> * 5904, [10000, 10000, 10000, 10000], 1640, 96);
+// -- Fluid Distributor --
+recipes.addShaped(icFluidDistributor, [
+	[oreCircuitBasic, gtPumpCoverLV, oreCircuitBasic],
+	[gtPumpCoverLV, gtMachineHullLV, gtPumpCoverLV],
+	[icUFluidCell, icUFluidCell, icUFluidCell]]);
+ArcFurnace.addRecipe([gtSteelIngot * 8, gtAnnealedCopperIngot * 10, gtBronzeIngot * 9, gtTinIngot * 25], icFluidDistributor, liquidOxygen * 7488, [10000, 10000, 10000, 10000], 2080, 96);
 
-// Magnetizer
-var steelSpringMagn = <gregtech:gt.metaitem.02:24355>;
-recipes.addShaped(<IC2:blockMachine:9>, [
-[steelSpringMagn, <IC2:blockFenceIron>, steelSpringMagn],
-[<ore:calclavia:ADVANCED_BATTERY>, HullLV, <ore:calclavia:ADVANCED_BATTERY>],
-[steelSpringMagn, <IC2:blockFenceIron>, steelSpringMagn]]);
+// -- Electric Sorting Machine --
+recipes.addShapeless(icSortingMachine, [gtRegulatorLV]);
+recipes.addShapeless(gtRegulatorLV, [icSortingMachine]);
 
-ArcFurnace.addRecipe([steelIngot * 12, wroughtIronIngot, batteryAlloyIngot * 2, tinIngot * 2], <IC2:blockMachine:9>, <liquid:oxygen> * 2448, [10000, 10000, 10000, 10000], 680, 96);
+// -- Item Buffer --
+recipes.addShapeless(icItemBuffer, [gtChestBufferLV]);
+recipes.addShapeless(gtChestBufferLV, [icItemBuffer]);
 
-// Tesla Coil
-var aluminiumSpring = <gregtech:gt.metaitem.02:24019>;
-recipes.addShaped(<IC2:blockMachine2:1>, [
-[emitterMV, aluminiumSpring, emitterMV],
-[aluminiumSpring, HullMV, aluminiumSpring],
-[emitterMV, aluminiumSpring, emitterMV]]);
+// -- Crop-Matron --
+recipes.addShaped(icCropMatron, [
+	[gtRobotArmLV, oreCircuitBasic, gtRobotArmLV],
+	[gtPumpCoverLV, gtMachineHullLV, gtConveyorModuleLV],
+	[mcChest, oreCircuitBasic, icUFluidCell]]);
+ArcFurnace.addRecipe([gtSteelIngot * 20, gtAnnealedCopperIngot * 22, gtWroughtIronIngot * 14, gtTinIngot * 22], icCropMatron, liquidOxygen * 11232, [10000, 10000, 10000, 10000], 3120, 96);
 
-ArcFurnace.addRecipe([aluminiumIngot * 12, annealedCopperIngot * 5, electrumIngot * 8], <IC2:blockMachine2:1>, <liquid:oxygen> * 3600, [10000, 10000, 10000], 1000, 96);
+// -- Crop Harvester --
+recipes.addShaped(icCropHarvester, [
+	[gtRobotArmLV, oreCircuitBasic, gtRobotArmLV],
+	[gtElectricPistonLV, gtMachineHullLV, gtSensorLV],
+	[oreCableGt01Tin, gtConveyorModuleLV, oreCableGt01Tin]]);
+ArcFurnace.addRecipe([gtSteelIngot * 29, gtAnnealedCopperIngot * 20, gtWroughtIronIngot * 13, gtTinIngot * 17], icCropHarvester, liquidOxygen * 11376, [10000, 10000, 10000, 10000], 3160, 96);
 
-// Fluid Regulator
-recipes.addShaped(<IC2:blockMachine2:14>, [
-[GoodCircuit, pumpMV, GoodCircuit],
-[steelFluidPipe, HullMV, steelFluidPipe],
-[GoodCircuit, EmptyCell, GoodCircuit]]);
+// -- Electric Boat --
+recipes.remove(icElectricBoat);
+recipes.addShaped(icElectricBoat, [
+	[oreWireCopper, gtMotorMV, oreRotorSteel],
+	[orePlateAluminium, null, orePlateAluminium],
+	[orePlateAluminium, orePlateAluminium, orePlateAluminium]]);
+ArcFurnace.addRecipe([gtSteelIngot * 4, gtAnnealedCopperIngot * 5, gtAluminiumIngot * 5], icElectricBoat, liquidOxygen * 1584, [10000, 10000, 10000], 440, 96);
 
-ArcFurnace.addRecipe([aluminiumIngot * 9, annealedCopperIngot * 13, steelIngot * 9, tinIngot * 2], <IC2:blockMachine2:14>, <liquid:oxygen> * 4752, [10000, 10000, 10000, 10000], 1320, 96);
+// -- Bottling Plant --
+recipes.addShaped(icBottlingPlant, [
+	[oreCellEmpty, gtPumpCoverLV, oreCellEmpty],
+	[oreCellEmpty, gtCanningMachine, oreCellEmpty],
+	[oreCellEmpty, gtPumpCoverLV, oreCellEmpty]]);
+ArcFurnace.addRecipe([gtSteelIngot * 8, gtAnnealedCopperIngot * 6, gtBronzeIngot * 9, gtTinIngot * 31], icBottlingPlant, liquidOxygen * 8208, [10000, 10000, 10000, 10000], 2280, 96);
 
-// Fluid Distributor
-recipes.addShaped(<IC2:blockMachine3:4>, [
-[circuitBasic, pumpLV, circuitBasic],
-[pumpLV, HullLV, pumpLV],
-[EmptyCell, EmptyCell, EmptyCell]]);
+// -- Raintank --
+ArcFurnace.addRecipe([gtWroughtIronIngot * 13], frRaintank, liquidOxygen * 1872, [10000], 520, 96);
 
-ArcFurnace.addRecipe([steelIngot * 8, annealedCopperIngot * 10, bronzeIngot * 9, tinIngot * 25], <IC2:blockMachine3:4>, <liquid:oxygen> * 7488, [10000, 10000, 10000, 10000], 2080, 96);
+// -- Lead --
+recipes.addShaped(mcLead, [
+    [mcString, mcString, null], 
+    [mcString, icStickyResin, null],
+    [null, null, mcString]]);
 
-//Electric Sorting Machine
-var regulator = <gregtech:gt.blockmachines:9271>;
-recipes.addShapeless(<IC2:blockMachine3:5>, [regulator]);
-recipes.addShapeless(regulator, [<IC2:blockMachine3:5>]);
+// -- IC Uran Block --
+recipes.remove(icUraniumBlock);
+Compressor.addRecipe(icUraniumBlock, icUranium238 * 9);
 
-//Item Buffer
-var chestBuffer = <gregtech:gt.blockmachines:9231>;
-recipes.addShapeless(<IC2:blockMachine3:6>, [chestBuffer]);
-recipes.addShapeless(chestBuffer, [<IC2:blockMachine3:6>]);
+// -- EV Microwave Energy Transmitter --
+recipes.remove(gtMicEnergyTransmitterEV);
+recipes.addShaped(gtMicEnergyTransmitterEV, [
+    [gtEmitterEV, gtFieldGeneratorEV, gtEmitterEV], 
+    [gtEmitterEV, gtMachineHullEV, gtEmitterEV],
+    [oreCircuitData, icLapotronCrystal, oreCircuitData]]);
 
-// Crop-Matron
-recipes.addShaped(<IC2:blockMachine2:2>, [
-[robotArmLV, circuitBasic, robotArmLV],
-[pumpLV, HullLV, moduleConveyorLV],
-[Chest, circuitBasic, EmptyCell]]);
+// -- IC Iridium Fix --
+furnace.remove(gtIridiumIngot, icIridiumOre);
+furnace.remove(icIridiumOre);
+recipes.removeShapeless(icIridiumOre * 9, [gtIridiumIngot]);
+recipes.removeShapeless(gtIridiumDust * 9, [gtIridiumIngot]);
 
-ArcFurnace.addRecipe([steelIngot * 20, annealedCopperIngot * 22, wroughtIronIngot * 14, tinIngot * 22], <IC2:blockMachine2:2>, <liquid:oxygen> * 11232, [10000, 10000, 10000, 10000], 3120, 96);
-
-// Crop Harvester
-recipes.addShaped(<IC2:blockMachine3:7>, [
-[robotArmLV, circuitBasic, robotArmLV],
-[pistonElectricLV, HullLV, sensorLV],
-[CableLV, moduleConveyorLV, CableLV]]);
-
-ArcFurnace.addRecipe([steelIngot * 29, annealedCopperIngot * 20, wroughtIronIngot * 13, tinIngot * 17], <IC2:blockMachine3:7>, <liquid:oxygen> * 11376, [10000, 10000, 10000, 10000], 3160, 96);
-
-//Electric Boat
-recipes.remove(<IC2:itemBoat:3>);
-recipes.addShaped(<IC2:itemBoat:3>, [
-[<ore:craftingWireCopper>, MVMotor, <ore:rotorSteel>],
-[AluminiumPlate, null, AluminiumPlate],
-[AluminiumPlate, AluminiumPlate, AluminiumPlate]]);
-
-ArcFurnace.addRecipe([steelIngot * 4, annealedCopperIngot * 5, aluminiumIngot * 5], <IC2:itemBoat:3>, <liquid:oxygen> * 1584, [10000, 10000, 10000], 440, 96);
-
-//Bollting machine
-recipes.addShaped(<IC2:blockMachine2:10>, [
-	[<ore:cellEmpty>, pumpLV, <ore:cellEmpty>],
-	[<ore:cellEmpty>, <gregtech:gt.blockmachines:231>, <ore:cellEmpty>],
-	[<ore:cellEmpty>, pumpLV, <ore:cellEmpty>]]);
-
-ArcFurnace.addRecipe([steelIngot * 8, annealedCopperIngot * 6, bronzeIngot * 9, tinIngot * 31], <IC2:blockMachine2:10>, <liquid:oxygen> * 8208, [10000, 10000, 10000, 10000], 2280, 96);
-
-//Raintank
-ArcFurnace.addRecipe([wroughtIronIngot * 13], <Forestry:factory2:1>, <liquid:oxygen> * 1872, [10000], 520, 96);
-
-
-//Lead
-recipes.addShaped(<minecraft:lead>, [
-    [<minecraft:string>, <minecraft:string>, null], 
-    [<minecraft:string>, <IC2:itemHarz>, null],
-    [null, null, <minecraft:string>]]);
-
-//IC Uran block
-recipes.remove(<IC2:blockMetal:3>);
-Compressor.addRecipe(<IC2:blockMetal:3>, <IC2:itemUran238> * 9);
-
-//EV Microwave Energy Transmitter
-var MicTransmitterEV = <gregtech:gt.blockmachines:1162>;
-recipes.remove(MicTransmitterEV);
-recipes.addShaped(MicTransmitterEV, [
-    [emitterEV, FieldGeneratorEV, emitterEV], 
-    [emitterEV, HullEV, emitterEV],
-    [<ore:circuitData>, LapotronicCrystal, <ore:circuitData>]]);
+// -- Raw Carbon Mesh --
+recipes.remove(icRawCarbonMesh);
 
 
-//Ind Diamond
-//recipes.addShapeless(<minecraft:diamond>, [<IC2:itemPartIndustrialDiamond>]);
+// -- Other Fixes --
+// -- Adding Creosote to SemiFluid Generator --
+SemiFluidGenerator.addFluid(liquidCreosote * 53, 8);
 
-//IC Iridium Fix
-furnace.remove(<gregtech:gt.metaitem.01:11084>, <IC2:itemOreIridium>);
-furnace.remove(<IC2:itemOreIridium>);
-recipes.removeShapeless(<IC2:itemOreIridium> * 9, [<gregtech:gt.metaitem.01:11084>]);
-recipes.removeShapeless(<gregtech:gt.metaitem.01:2084> * 9, [<gregtech:gt.metaitem.01:11084>]);
+// -- Test --
+furnace.setFuel(oreBlockLignite, 12000);
+furnace.setFuel(oreBlockCharcoal, 16000);
+
+// -- Fixing JABBA unification exploits --
+// -- Iron/PigIron/WroughtIron --
+oreIngotAnyIron.remove(gtWroughtIronIngot);                   // Wrought Iron Ingot
+oreIngotAnyIron.remove(gtPigIronIngot);                       // Pig Iron Ingot
+oreIngotDoubleAnyIron.remove(gtDoubleWroughtIronIngot);       // Wrought Iron Ingot (Double)
+oreIngotDoubleAnyIron.remove(gtDoublePigIronIngot);           // Pig Iron Ingot (Double)
+oreIngotTripleAnyIron.remove(gtTripleWroughtIronIngot);       // Wrought Iron Ingot (Triple)
+oreIngotTripleAnyIron.remove(gtTriplePigIronIngot);           // Pig Iron Ingot (Triple)
+oreIngotQuadrupleAnyIron.remove(gtQuadrupleWroughtIronIngot); // Wrought Iron Ingot (Quadruple)
+oreIngotQuadrupleAnyIron.remove(gtQuadruplePigIronIngot);     // Pig Iron Ingot (Quadruple)
+oreIngotQuintupleAnyIron.remove(gtQuintupleWroughtIronIngot); // Wrought Iron Ingot (Quintuple)
+oreIngotQuintupleAnyIron.remove(gtQuintuplePigIronIngot);     // Pig Iron Ingot (Quintuple)
+oreOreAnyIron.remove(gtPigIronOre);                           // Pig Iron Ore
+oreDustAnyIron.remove(gtWroughtIronDust);                     // Wrought Iron Dust
+oreDustAnyIron.remove(gtPigIronDust);                         // Pig Iron Dust
+oreDustPureAnyIron.remove(gtPurePigIronDust);                 // Pig Iron Dust (Pure)
+oreDustPureAnyIron.remove(gtImpurePigIronDust);               // Pig Iron Dust (Impure)
+oreDustSmallAnyIron.remove(gtSmallIronDust);                  // Wrought Iron Dust (Small)
+oreDustSmallAnyIron.remove(gtSmallPigIronDust);               // Pig Iron Dust (Small)
+oreDustTinyAnyIron.remove(gtTinyWroughtIronDust);             // Wrought Iron Dust (Tiny)
+oreDustTinyAnyIron.remove(gtTinyPigIronDust);                 // Pig Iron Dust (Tiny)
+oreNuggetAnyIron.remove(gtWroughtIronNugget);                 // Wrought Iron Nugget
+oreNuggetAnyIron.remove(gtPigIronNugget);                     // Pig Iron Nugget
+// -- Copper/AnnealedCopper --    
+oreIngotAnyCopper.remove(gtAnnealedCopperIngot);                   // Annealed Copper Ingot
+oreIngotDoubleAnyCopper.remove(gtDoubleAnnealedCopperIngot);       // Annealed Copper Ingot (Double)
+oreIngotTripleAnyCopper.remove(gtTripleAnnealedCopperIngot);       // Annealed Copper Ingot (Triple)
+oreIngotQuadrupleAnyCopper.remove(gtQuadrupleAnnealedCopperIngot); // Annealed Copper Ingot (Quadruple)
+oreIngotQuintupleAnyCopper.remove(gtQuintupleAnnealedCopperIngot); // Annealed Copper Ingot (Quintuple)
+oreDustAnyCopper.remove(gtAnnealedCopperDust);                     // Annealed Copper Dust
+oreDustSmallAnyCopper.remove(gtSmallAnnealedCopperDust);           // Annealed Copper Dust (Small)
+oreDustTinyAnyCopper.remove(gtTinyAnnealedCopperDust);             // Annealed Copper Dust (Tiny)
+oreNuggetAnyCopper.remove(gtAnnealedCopperNugget);                 // Annealed Copper Nugget
+
+// -- Battery Tooltip --
+oreBatteryElite.addTooltip("Reusable battery");
+oreBatteryElite.addTooltip(format.aqua("Voltage: 512"));
+oreBatteryMaster.addTooltip("Reusable battery");
+oreBatteryMaster.addTooltip(format.aqua("Voltage: 2048"));
+
+// -- LV Cable Using Unification --
+oreCableGt01Tin.addAll(oreCableGt02Cobalt);
+oreCableGt01Tin.addAll(oreCableGt02Lead);
+oreCableGt01Tin.addAll(oreCableGt01SolderingAlloy);
+oreCableGt01Tin.addAll(oreCableGt01Zinc);
+oreCableGt01Tin.addAll(oreCableGt01Iron);
+oreCableGt01Tin.addAll(oreCableGt01Nickel);
