@@ -138,6 +138,7 @@ var gtWroughtIronNugget = <gregtech:gt.metaitem.01:9304>;
 
 var icAdvancedAlloy = <IC2:itemPartAlloy>; 
 var icAdvancedHeatVent = <IC2:reactorVentDiamond:1>;
+var icAdvancedMachineCasing = <IC2:blockMachine:12>;
 var icAdvancedMiner = <IC2:blockMachine2:11>;
 var icAdvancedREBattery = <IC2:itemAdvBat>;
 var icBasicMachineCasing = <IC2:blockMachine:0>;
@@ -148,42 +149,59 @@ var icBronzeItemCasing = <IC2:itemCasing:2>;
 var icCarbonRotorBlade = <IC2:itemRecipePart:9>;
 var icCESU = <IC2:blockElectric:7>;
 var icCFSprayer = <IC2:itemFoamSprayer>;
+var icChainsaw = <IC2:itemToolChainsaw:*>;
 var icCoil = <IC2:itemRecipePart:0>;
 var icComponentHeatExchanger = <IC2:reactorHeatSwitchSpread>;
 var icComponentHeatExchanger1 = <IC2:reactorHeatSwitchSpread:1>;
 var icComponentHeatVent = <IC2:reactorVentSpread>;
+var icCondenser = <IC2:blockMachine2:15>;
 var icContainmentReactorPlating = <IC2:reactorPlatingExplosive>;
 var icCropHarvester = <IC2:blockMachine3:7>;
 var icCropMatron = <IC2:blockMachine2:2>;
 var icDenseLapisPlate = <IC2:itemDensePlates:8>;
+var icDiamondDrill = <IC2:itemToolDDrill:*>;
 var icElectricBoat = <IC2:itemBoat:3>;
+var icElectricHeatGenerator = <IC2:blockHeatGenerator:3>;
 var icElectricHoe = <IC2:itemToolHoe>;
+var icElectricKineticGenerator = <IC2:blockKineticGenerator:2>;
 var icElectricTreetap = <IC2:itemTreetapElectric>;
 var icElectricWrench = <IC2:itemToolWrenchElectric>;
 var icElectronicCircuit = <IC2:itemPartCircuit>;
 var icEnergyCrystal = <IC2:itemBatCrystal:*>;
+var icEnergyOMat = <IC2:blockPersonal:2>;
 var icEnrichedUranium = <IC2:itemUran>;
+var icFermenter = <IC2:blockMachine2:13>;
 var icFluidDistributor = <IC2:blockMachine3:4>;
+var icFluidHeatGenerator = <IC2:blockHeatGenerator:1>;
 var icFluidRegulator = <IC2:blockMachine2:14>;
 var icFuelRodEmpty = <IC2:itemFuelRod>;
 var icFuelRodMOX = <IC2:reactorMOXSimple:1>;
 var icFuelRodUranium = <IC2:reactorUraniumSimple:1>;
+var icGenerator = <IC2:blockGenerator:0>;
+var icGeothermalGenerator = <IC2:blockGenerator:1>;
 var icGoldItemCasing = <IC2:itemCasing:3>;
 var icHazmatLeggings = <IC2:itemArmorHazmatLeggings>;
 var icHazmatSuit = <IC2:itemArmorHazmatChestplate>;
 var icHeatExchanger1 = <IC2:reactorHeatSwitch:1>;
 var icHeatReactorPlating = <IC2:reactorPlatingHeat>;
 var icHeatVent1 = <IC2:reactorVent:1>;
+var icIridiumDrill = <IC2:itemToolIridiumDrill:*>;
 var icIridiumOre = <IC2:itemOreIridium>;
 var icIronFence = <IC2:blockFenceIron>;
+var icIronFurnace = <IC2:blockMachine:1>;
 var icIronItemCasing = <IC2:itemCasing:4>;
 var icIronRotorBlade = <IC2:itemRecipePart:8>;
 var icItemBuffer = <IC2:blockMachine3:6>;
+var icKineticGenerator = <IC2:blockGenerator:9>;
+var icKineticSteamGenerator = <IC2:blockKineticGenerator:1>; 
+var icKineticWaterGenerator = <IC2:blockKineticGenerator:4>;
 var icKineticWindGenerator = <IC2:blockKineticGenerator:0>;
 var icLapotronCrystal = <IC2:itemBatLamaCrystal:26>;
+var icLiquidHeatExchanger = <IC2:blockMachine2:12>;
 var icLZHCondensator1 = <IC2:reactorCondensatorLap:1>;
 var icLZHCondensator9998 = <IC2:reactorCondensatorLap:9998>;
 var icMagnetizer = <IC2:blockMachine:9>;
+var icManualKineticGenerator = <IC2:blockKineticGenerator:3>;
 var icMFE = <IC2:blockElectric:1>;
 var icMFSU = <IC2:blockElectric:2>;
 var icMFSUUpgradeKit = <IC2:itemupgradekit>;
@@ -199,6 +217,10 @@ var icODScanner = <IC2:itemScanner>;
 var icODScannerMeta = <IC2:itemScanner:*>;
 var icOverclockedHeatVent = <IC2:reactorVentGold:1>;
 var icOVScanner = <IC2:itemScannerAdv>;
+var icPatternStorage = <IC2:blockMachine2:6>;
+var icPersonalSafe = <IC2:blockPersonal:0>;
+var icPump = <IC2:blockMachine:8>;
+var icRadioisotopeHeatGenerator = <IC2:blockHeatGenerator:2>;
 var icRawCarbonMesh = <IC2:itemPartCarbonMesh>;
 var icReactorChamber = <IC2:blockReactorChamber>;
 var icReactorHeatExchanger = <IC2:reactorHeatSwitchCore>;
@@ -213,27 +235,41 @@ var icRSHCondensator1 = <IC2:reactorCondensator:1>;
 var icRSHCondensator9998 = <IC2:reactorCondensator:9998>;
 var icRTGGenerator = <IC2:blockGenerator:6>;
 var icRubberBoots = <IC2:itemArmorRubBoots>;
+var icScanner = <IC2:blockMachine2:7>;
+var icScrapBox = <IC2:itemScrapbox>;
 var icScubaHelmet = <IC2:itemArmorHazmatHelmet>;
+var icSemifluidGenerator = <IC2:blockGenerator:7>;
 var icShaftIron = <IC2:itemRecipePart:11>;
 var icShaftRefinedIron = <IC2:itemRecipePart:12>;
 var icSmallPowerUnit = <IC2:itemRecipePart:3>;
+var icSolarDistiller = <IC2:blockMachine3:3>;
+var icSolidCanningMachine = <IC2:blockMachine2:9>;
+var icSolidFluidCanningMachine = <IC2:blockMachine:6>;
+var icSolidHeatGenerator = <IC2:blockHeatGenerator:0>;
 var icSortingMachine = <IC2:blockMachine3:5>;
+var icSteamGenerator = <IC2:blockMachine3:0>;
 var icSteelRotorBlade = <IC2:itemRecipePart:10>;
 var icStickyResin = <IC2:itemHarz>;
+var icStirlingGenerator = <IC2:blockGenerator:8>;
+var icStirlingKineticGenerator = <IC2:blockKineticGenerator:5>;
+var icTeleporter = <IC2:blockMachine2:0>;
 var icTerraformer = <IC2:blockMachine:15>;
 var icTeslaCoil = <IC2:blockMachine2:1>;
 var icTFBP = <IC2:itemTFBP>;
 var icThickNeutronReflector = <IC2:reactorReflectorThick:1>;
 var icToolBox = <IC2:itemToolbox>;
+var icTradeOMat = <IC2:blockPersonal:1>;
 var icTransformerEV = <IC2:blockElectric:6>;
 var icTransformerHV = <IC2:blockElectric:5>;
 var icTransformerLV = <IC2:blockElectric:3>;
 var icTransformerMV = <IC2:blockElectric:4>;
+var icTurningTable = <IC2:blockMachine3:8>;
 var icUFluidCell = <IC2:itemFluidCell>;
 var icUranium238 = <IC2:itemUran238>;
 var icUraniumBlock = <IC2:blockMetal:3>;
 var icWeedingTrowel = <IC2:itemWeedingTrowel>;
 var icWoodRotorBlade = <IC2:itemRecipePart:7>;
+var icWrench = <IC2:itemToolWrench>;
 
 var mcBlockDiamond = <minecraft:diamond_block>;
 var mcBook = <minecraft:book>;
@@ -366,21 +402,42 @@ var WiresList = [gt2xVGaWire, gt2xNbTiWire, gt2xYBaCuWire, gt2xNqWire] as IItemS
 
 // Recipes
 // -- Full Removing --
-recipes.remove(<IC2:blockKineticGenerator:*>);
-recipes.remove(<IC2:blockHeatGenerator:*>);
-recipes.remove(<IC2:blockGenerator:*>);
-recipes.remove(<IC2:blockMachine:*>);
-recipes.remove(<IC2:blockMachine2:*>);
-recipes.remove(<IC2:blockMachine3:*>);
-recipes.remove(<IC2:blockPersonal:*>);
-recipes.remove(<IC2:blockITNT>);
-recipes.remove(<IC2:blockElectric:*>);
-recipes.remove(<IC2:itemScrapbox>);
-recipes.remove(<IC2:itemToolDrill:*>);
-recipes.remove(<IC2:itemToolDDrill:*>);
-recipes.remove(<IC2:itemToolIridiumDrill:*>);
-recipes.remove(<IC2:itemToolChainsaw:*>);
-recipes.remove(<IC2:itemToolWrench>);
+recipes.remove(icKineticSteamGenerator); 
+recipes.remove(icElectricKineticGenerator);
+recipes.remove(icManualKineticGenerator);
+recipes.remove(icKineticWaterGenerator);
+recipes.remove(icStirlingKineticGenerator);
+recipes.remove(icSolidHeatGenerator);
+recipes.remove(icFluidHeatGenerator);
+recipes.remove(icRadioisotopeHeatGenerator);
+recipes.remove(icElectricHeatGenerator);
+recipes.remove(icGenerator);
+recipes.remove(icGeothermalGenerator);
+recipes.remove(icSemifluidGenerator);
+recipes.remove(icStirlingGenerator);
+recipes.remove(icKineticGenerator);
+recipes.remove(icIronFurnace);
+recipes.remove(icSolidFluidCanningMachine);
+recipes.remove(icPump);
+recipes.remove(icAdvancedMachineCasing);
+recipes.remove(icTerraformer);
+recipes.remove(icTeleporter);
+recipes.remove(icPatternStorage);
+recipes.remove(icScanner);
+recipes.remove(icSolidCanningMachine);
+recipes.remove(icLiquidHeatExchanger);
+recipes.remove(icFermenter);
+recipes.remove(icCondenser);
+recipes.remove(icSteamGenerator);
+recipes.remove(icSolarDistiller);
+recipes.remove(icTurningTable);
+recipes.remove(icPersonalSafe);
+recipes.remove(icTradeOMat);
+recipes.remove(icEnergyOMat);
+recipes.remove(icDiamondDrill);
+recipes.remove(icIridiumDrill);
+recipes.remove(icChainsaw);
+recipes.remove(icWrench);
 
 // -- OV Scanner --
 recipes.remove(icOVScanner);
@@ -396,7 +453,7 @@ recipes.addShaped(icAdvancedREBattery, [
 	[icBronzeItemCasing, oreDustSulfur, icBronzeItemCasing],
 	[icBronzeItemCasing, oreDustLead, icBronzeItemCasing]]);
 
-// -- Kinetic Wind Generator --
+// -- Kinetic Wind Generator -- (Cannot be crafted: Generator from IC2 has no correct recipe)
 recipes.remove(icKineticWindGenerator);
 recipes.addShaped(icKineticWindGenerator, [
 	[orePlateTungstenSteel, oreCircuitAdvanced, orePlateTungstenSteel],
@@ -488,30 +545,35 @@ recipes.remove(icEnrichedUranium);
 AlloySmelter.addRecipe(icEnrichedUranium, oreIngotUraniumFirst * 6, oreNuggetUranium235First * 3, 100, 48);
 
 // -- Mining Drill --
+recipes.remove(icMiningDrill);
 recipes.addShaped(icMiningDrill, [
 		[oreToolWrench, null, null],
 		[null, gtDrillLV, null],
 		[null, null, oreToolScrewdriver]]);
 
 // -- Bat Box --
+recipes.remove(icBatBox);
 recipes.addShaped(icBatBox, [
 	[oreWireTin, orePlateSteel, oreWireTin],
 	[oreBatteryBasic, gtMachineHullLV, oreBatteryBasic],
 	[oreCircuitBasic, oreBatteryBasic , oreCircuitBasic]]);
 
 // -- CESU --
+recipes.remove(icCESU);
 recipes.addShaped(icCESU, [
 	[oreWireCopper, orePlateBronze, oreWireCopper],
 	[oreBatteryAdvanced, gtMachineHullMV, oreBatteryAdvanced],
 	[oreCircuitGood, oreBatteryAdvanced, oreCircuitGood]]);
 
 // -- MFE --
+recipes.remove(icMFE);
 recipes.addShaped(icMFE, [
 	[oreCableGt01Silver, oreBatteryElite, oreCableGt01Silver],
 	[oreBatteryElite, gtMachineHullHV, oreBatteryElite],
 	[oreCircuitAdvanced, oreBatteryElite, oreCircuitAdvanced]]);
 
 // -- MFSU --
+recipes.remove(icMFSU);
 recipes.addShaped(icMFSU, [
 	[oreCableGt01TungstenSteel, oreBatteryMaster, oreCableGt01TungstenSteel],
 	[oreBatteryMaster, gtMachineHullEV, oreBatteryMaster],
@@ -526,28 +588,34 @@ recipes.remove(icMiningPipe);
 recipes.addShapeless(icMiningPipe, [gtSteelFluidPipe]);
 
 // -- LV Transformer --
+recipes.remove(icTransformerLV);
 recipes.addShapeless(icTransformerLV, [gtTransformerLV]);
 recipes.addShapeless(gtTransformerLV, [icTransformerLV]);
 
 // -- MV Transformer --
+recipes.remove(icTransformerMV);
 recipes.addShapeless(icTransformerMV, [gtTransformerMV]);
 recipes.addShapeless(gtTransformerMV, [icTransformerMV]);
 
 // -- HV Transformer --
+recipes.remove(icTransformerHV);
 recipes.addShapeless(icTransformerHV, [gtTransformerHV]);
 recipes.addShapeless(gtTransformerHV, [icTransformerHV]);
 
 // -- EV Transformer --
+recipes.remove(icTransformerEV);
 recipes.addShapeless(icTransformerEV, [gtTransformerEV]);
 recipes.addShapeless(gtTransformerEV, [icTransformerEV]);
 
 // -- Nuclear Reactor --
+recipes.remove(icNuclearReactor);
 recipes.addShaped(icNuclearReactor, [
 	[gtEnergyFlowCircuit, gtRobotArmEV ,gtEnergyFlowCircuit],
 	[icReactorChamber, gtMachineHullEV, icReactorChamber],
 	[icThickNeutronReflector, icReactorChamber, icThickNeutronReflector]]);
 
 // -- Radioisotope Thermoelectric Generator --
+recipes.remove(icRTGGenerator);
 recipes.addShaped(icRTGGenerator, [
 	[orePlateQuadrupleLead, orePlateQuadrupleLead, orePlateQuadrupleLead],
 	[orePlateQuadrupleLead, gtMachineHullLV, orePlateQuadrupleLead],
@@ -727,9 +795,11 @@ recipes.remove(icElectricWrench);
 recipes.addShapeless(icElectricWrench, [bcWrench, icSmallPowerUnit]);
 
 // -- Basic Machine Casing
+recipes.remove(icBasicMachineCasing);
 recipes.addShapeless(icBasicMachineCasing, [gtMachineCasingULV]);
 
 // -- Miner --
+recipes.remove(icMiner);
 recipes.addShaped(icMiner, [
 	[null, mcChest, null],
 	[oreCircuitBasic, gtMachineHullLV, oreCircuitBasic],
@@ -737,6 +807,7 @@ recipes.addShaped(icMiner, [
 ArcFurnace.addRecipe([gtSteelIngot * 14, gtAnnealedCopperIngot * 4, gtBatteryAlloyIngot, gtTinIngot], icMiner, liquidOxygen * 2880, [10000, 10000, 10000, 10000], 800, 96);
 
 // -- Advanced Miner --
+recipes.remove(icAdvancedMiner);
 recipes.addShaped(icAdvancedMiner, [
 	[gtElectricPistonHV, gtMachineHullHV, gtConveyorModuleHV],
 	[oreCircuitAdvanced, icMiningPipe, oreCircuitAdvanced],
@@ -744,13 +815,15 @@ recipes.addShaped(icAdvancedMiner, [
 ArcFurnace.addRecipe([gtSteelIngot * 9, gtAnnealedCopperIngot * 24, gtStainlessStellIngot * 20, gtGoldIngot * 7], icAdvancedMiner, liquidOxygen * 5904, [10000, 10000, 10000, 10000], 1640, 96);
 
 // -- Magnetizer --
+recipes.remove(icMagnetizer);
 recipes.addShaped(icMagnetizer, [
 	[gtMagneticSteelSpring, icIronFence, gtMagneticSteelSpring],
 	[oreAdvancedBattery, gtMachineHullLV, oreAdvancedBattery],
 	[gtMagneticSteelSpring, icIronFence, gtMagneticSteelSpring]]);
 ArcFurnace.addRecipe([gtSteelIngot * 12, gtWroughtIronIngot, gtBatteryAlloyIngot * 2, gtTinIngot * 2], icMagnetizer, liquidOxygen * 2448, [10000, 10000, 10000, 10000], 680, 96);
 
-// -- Tesla Coil -- 
+// -- Tesla Coil --
+recipes.remove(icTeslaCoil); 
 recipes.addShaped(icTeslaCoil, [
 	[gtEmitterMV, gtAluminiumSpring, gtEmitterMV],
 	[gtAluminiumSpring, gtMachineHullMV, gtAluminiumSpring],
@@ -758,6 +831,7 @@ recipes.addShaped(icTeslaCoil, [
 ArcFurnace.addRecipe([gtAluminiumIngot * 12, gtAnnealedCopperIngot * 5, gtElectrumIngot * 8], icTeslaCoil, liquidOxygen * 3600, [10000, 10000, 10000], 1000, 96);
 
 // -- Fluid Regulator --
+recipes.remove(icFluidRegulator);
 recipes.addShaped(icFluidRegulator, [
 	[oreCircuitGood, gtPumpCoverMV, oreCircuitGood],
 	[gtSteelFluidPipe, gtMachineHullMV, gtSteelFluidPipe],
@@ -765,6 +839,7 @@ recipes.addShaped(icFluidRegulator, [
 ArcFurnace.addRecipe([gtAluminiumIngot * 9, gtAnnealedCopperIngot * 13, gtSteelIngot * 9, gtTinIngot * 2], icFluidRegulator, liquidOxygen * 4752, [10000, 10000, 10000, 10000], 1320, 96);
 
 // -- Fluid Distributor --
+recipes.remove(icFluidDistributor);
 recipes.addShaped(icFluidDistributor, [
 	[oreCircuitBasic, gtPumpCoverLV, oreCircuitBasic],
 	[gtPumpCoverLV, gtMachineHullLV, gtPumpCoverLV],
@@ -772,14 +847,17 @@ recipes.addShaped(icFluidDistributor, [
 ArcFurnace.addRecipe([gtSteelIngot * 8, gtAnnealedCopperIngot * 10, gtBronzeIngot * 9, gtTinIngot * 25], icFluidDistributor, liquidOxygen * 7488, [10000, 10000, 10000, 10000], 2080, 96);
 
 // -- Electric Sorting Machine --
+recipes.remove(icSortingMachine);
 recipes.addShapeless(icSortingMachine, [gtRegulatorLV]);
 recipes.addShapeless(gtRegulatorLV, [icSortingMachine]);
 
 // -- Item Buffer --
+recipes.remove(icItemBuffer);
 recipes.addShapeless(icItemBuffer, [gtChestBufferLV]);
 recipes.addShapeless(gtChestBufferLV, [icItemBuffer]);
 
 // -- Crop-Matron --
+recipes.remove(icCropMatron);
 recipes.addShaped(icCropMatron, [
 	[gtRobotArmLV, oreCircuitBasic, gtRobotArmLV],
 	[gtPumpCoverLV, gtMachineHullLV, gtConveyorModuleLV],
@@ -787,6 +865,7 @@ recipes.addShaped(icCropMatron, [
 ArcFurnace.addRecipe([gtSteelIngot * 20, gtAnnealedCopperIngot * 22, gtWroughtIronIngot * 14, gtTinIngot * 22], icCropMatron, liquidOxygen * 11232, [10000, 10000, 10000, 10000], 3120, 96);
 
 // -- Crop Harvester --
+recipes.remove(icCropHarvester);
 recipes.addShaped(icCropHarvester, [
 	[gtRobotArmLV, oreCircuitBasic, gtRobotArmLV],
 	[gtElectricPistonLV, gtMachineHullLV, gtSensorLV],
@@ -802,6 +881,7 @@ recipes.addShaped(icElectricBoat, [
 ArcFurnace.addRecipe([gtSteelIngot * 4, gtAnnealedCopperIngot * 5, gtAluminiumIngot * 5], icElectricBoat, liquidOxygen * 1584, [10000, 10000, 10000], 440, 96);
 
 // -- Bottling Plant --
+recipes.remove(icBottlingPlant);
 recipes.addShaped(icBottlingPlant, [
 	[oreCellEmpty, gtPumpCoverLV, oreCellEmpty],
 	[oreCellEmpty, gtCanningMachine, oreCellEmpty],
@@ -838,7 +918,10 @@ recipes.removeShapeless(gtIridiumDust * 9, [gtIridiumIngot]);
 recipes.remove(icRawCarbonMesh);
 
 
-// -- Other Fixes --
+// Other Fixes
+// -- Scrap Box --
+recipes.remove(icScrapBox);
+
 // -- Adding Creosote to SemiFluid Generator --
 SemiFluidGenerator.addFluid(liquidCreosote * 53, 8);
 
